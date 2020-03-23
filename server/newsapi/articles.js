@@ -18,6 +18,4 @@ router.get('/:company', async (req, res, next) => {
     }).then((articles) =>{
       res.json(articles)
     })
-
-
 })
