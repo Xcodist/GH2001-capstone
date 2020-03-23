@@ -225,7 +225,7 @@ const Navbar = props => {
             component={RouterLink}
             to="/"
           >
-            Fuck Amazon
+            F*$! Amazon
           </Link>
         </Typography>
         <nav>{navRoutes()}</nav>
