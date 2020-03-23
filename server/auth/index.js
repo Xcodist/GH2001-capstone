@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
-module.exports = router
+const {isUser} = require('../../utils')
 
 router.post('/login', async (req, res, next) => {
   try {
@@ -38,8 +38,11 @@ router.post('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/me', (req, res) => {
-  res.json(req.user)
+router.get('/me', isUser, async (req, res) => {
+  const user = await User.findByPk(req.user.id)
+  res.json(user)
 })
 
 router.use('/google', require('./google'))
+
+module.exports = router

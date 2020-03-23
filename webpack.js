@@ -5,7 +5,7 @@ const baseManifest = require("./chrome/manifest.json");
 const WebpackExtensionManifestPlugin = require("webpack-extension-manifest-plugin");
 const config = {
   mode: "development",
-  devtool: "cheap-module-source-map",
+  devtool: "inline-source-map",
   entry: {
     app: path.join(__dirname, "./static/index.js"),
   },

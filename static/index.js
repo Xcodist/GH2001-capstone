@@ -8,9 +8,6 @@ import "./index.css";
 import store from '../app/store'
 
 
-
-ReactDOM.render(<App />, document.querySelector("#root"));
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
