@@ -1,15 +1,14 @@
 import React from "react";
 import Navbar from "./components/navbar";
-import Routes from './routes'
-
 
 class App extends React.Component {
   render() {
+    // debugger
     return (
-      <div>
+      <>
+
         <Navbar />
-        <Routes />
-      </div>
+      </>
     );
   }
 }
