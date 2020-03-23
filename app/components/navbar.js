@@ -196,8 +196,8 @@ const Admin = props => (
 )
 
 const Navbar = props => {
-  // debugger
-  // console.log(props)
+  debugger
+  console.log(props)
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
@@ -225,7 +225,7 @@ const Navbar = props => {
             component={RouterLink}
             to="/"
           >
-            F*$! Amazon
+            Fuck Amazon
           </Link>
         </Typography>
         <nav>{navRoutes()}</nav>
