@@ -2,10 +2,10 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
-const {isAdmin, isUser} = require('../../utils')
+//const {adminsOnly, currentUserOnly, adminOrCurrentUser} = require('../utils')
 
 //get all users for admin only
-router.get('/', isAdmin, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
       attributes: ['id', 'email']
@@ -17,7 +17,7 @@ router.get('/', isAdmin, async (req, res, next) => {
 })
 
 //get single page user for admins and the logged in user
-router.get('/:userId', isAdmin, async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId, {
       attributes: ['id', 'email']
