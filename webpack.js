@@ -6,9 +6,9 @@ const WebpackExtensionManifestPlugin = require("webpack-extension-manifest-plugi
 const config = {
   mode: "development",
   devtool: "inline-source-map",
-  entry: {
-    app: path.join(__dirname, "./static/index.js"),
-  },
+  entry: [
+    "babel-polyfill", "./static/index.js"
+  ],
   output: {
     path: path.resolve(__dirname, "./build"),
     filename: "[name].js"
