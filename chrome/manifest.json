@@ -8,11 +8,7 @@
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-  "background": {
-    "scripts": ["hot-reload.js"],
-    "persistent": false
-  },
-  "page_action": {
+  "browser_action": {
     "default_title": "Our Extension",
     "default_popup": "index.html"
   },
