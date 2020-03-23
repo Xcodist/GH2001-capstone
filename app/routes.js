@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Navbar from './components/navbar'
-import {me} from './store'
+import {me} from './store/users'
+import {Login, Signup} from './components/auth-form'
+import UserHome from './components/user-home'
 
 class Routes extends Component {
   componentDidMount() {
@@ -12,49 +14,25 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn, isAdmin} = this.props
-
+    console.log("this is me", me)
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
-        <Route exact path="/" component={Carousel} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/experiences" component={ConnectedExpList} />
-        <Route path="/checkout" component={Checkout} />
-
-        <Route
-          path="/experiences/:experienceId"
-          component={props => (
-            <ConnectedSingleExperience {...props} isLoggedIn={isLoggedIn} />
-          )}
-        />
-        <Route
-          exact
-          path="/cart"
-          component={() => <ConnectedCart isLoggedIn={isLoggedIn} />}
-        />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={Carousel} />
-            {isAdmin && (
-              <Switch>
+            {/* <Route path="/home" component={Carousel} /> */}
+            {/* {isAdmin && (
+              <Switch> */}
                 {/* Routes placed here are only available if the user is an admin */}
-                {/* <Route path="/home" component={UserHome} /> */}
-                <Route exact path="/admin" component={adminHome} />
-                <Route
-                  exact
-                  path="/admin/users"
-                  component={ConnectedAdminAllUsers}
-                />
-                <Route
-                  path="/admin/user/:userId"
-                  component={ConnectedEditUser}
-                />
+                <Route path="/home" component={UserHome} />
+                {/* <Route exact path="/admin" component={adminHome} /> */}
               </Switch>
             )}
-          </Switch>
-        )}
+          {/* </Switch> */}
+        {/* )} */}
 
         {/* Displays our Login component as a fallback */}
         <Route component={Login} />

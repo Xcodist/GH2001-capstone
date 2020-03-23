@@ -196,8 +196,8 @@ const Admin = props => (
 )
 
 const Navbar = props => {
-  debugger
-  console.log(props)
+  // debugger
+  // console.log(props)
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
@@ -238,7 +238,7 @@ const Navbar = props => {
  * CONTAINER
  */
 const mapState = state => {
-  debugger
+  // debugger
   return {
     isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin
