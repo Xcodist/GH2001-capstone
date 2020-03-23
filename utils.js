@@ -26,4 +26,4 @@ const isUser = (req, res, next) => {
   }
 }
 
-module.exports = {isAdmin, isUser}
+module.exports = {isUser, isAdmin}
