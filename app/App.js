@@ -6,9 +6,7 @@ class App extends React.Component {
     // debugger
     return (
       <>
-        <h1>Gimme some sugar</h1>
         <Navbar />
-        <h3>I am yo neighbor</h3>
       </>
     );
   }
