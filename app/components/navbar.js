@@ -196,8 +196,8 @@ const Admin = props => (
 )
 
 const Navbar = props => {
-  debugger
-  console.log(props)
+  // debugger
+  // console.log(props)
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
