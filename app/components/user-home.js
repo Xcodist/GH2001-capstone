@@ -46,7 +46,7 @@ const Home = () => {
       A couple of pointers along the way. As you shop we will be right there with you, giving you a thumbs up or down based on the companies responsibility rating. We are also here to give you direction to learn more about the companies you are purchasing from and a little reward if those companies are good players. Just click on the icon to find out more. Check your account to see if you have earned rewards and of course...
       Happy Shopping!
     </p>
-    <Navbar />
+
   </div>
   )
 }
