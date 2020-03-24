@@ -54,6 +54,7 @@ export const auth = (
   try {
     dispatch(getUser(res.data))
     history.push('/home')
+    chrome.runtime.sendMessage(res.data);
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

@@ -21,7 +21,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         {isLoggedIn && (
           <Switch>
-            <Route path="/home" component={UserHome} />
+            <Route exact path="/home" component={UserHome} />
             {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
