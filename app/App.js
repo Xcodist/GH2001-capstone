@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/navbar";
-import Routes from './routes'
-
+import Routes from './routes';
+import Articles from './components/article';
 
 class App extends React.Component {
   render() {
@@ -9,6 +9,7 @@ class App extends React.Component {
       <div>
         <Navbar />
         <Routes />
+        <Articles />
       </div>
     );
   }
