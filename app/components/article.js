@@ -47,8 +47,8 @@ class Articles extends Component {
       <div className="App">
         <h1 className="App-title">{this.state.domain}</h1>
         Top Headlines:
-        {this.state.headlines.map(headline => (
-          <h4 className="link" onClick={() => {
+        {this.state.headlines.map((headline, i) => (
+          <h4 key={i}  className="link" onClick={() => {
             window.open(headline.url)}}>{headline.title}</h4>))}
       </div>
     );
