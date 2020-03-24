@@ -9,7 +9,6 @@ class App extends React.Component {
       <div>
         <Navbar />
         <Routes />
-        <Articles />
       </div>
     );
   }
