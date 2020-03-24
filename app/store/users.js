@@ -25,7 +25,7 @@ export const me = () => async dispatch => {
   debugger
   try {
     debugger
-    const res = await axios.get('/auth/me')
+    const res = await axios.get('http://localhost:8080/auth/me')
     dispatch(getUser(res.data || defaultUser))
   } catch (err) {
     console.error(err)
@@ -41,7 +41,7 @@ export const auth = (
 ) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/${method}`, {
+    res = await axios.post(`http://localhost:8080/auth/${method}`, {
       email,
       password,
       firstName,
@@ -61,7 +61,7 @@ export const auth = (
 
 export const logout = () => async dispatch => {
   try {
-    await axios.post('/auth/logout')
+    await axios.post('http://localhost:8080/auth/logout')
     dispatch(removeUser())
     history.push('/login')
   } catch (err) {
