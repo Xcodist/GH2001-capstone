@@ -29,7 +29,6 @@ class Routes extends Component {
             )} */}
           </Switch>
         )}
-        <Route component={Login} />
       </Switch>
     );
   }
