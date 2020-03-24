@@ -4,7 +4,9 @@ import { withRouter, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { me } from "./store/users";
 import { Login, Signup } from "./components/auth-form";
-import UserHome from "./components/user-home";
+import Home from "./components/user-home";
+import Articles from "./components/article";
+
 
 class Routes extends Component {
   componentDidMount() {
@@ -17,11 +19,13 @@ class Routes extends Component {
     console.log(this.props);
     return (
       <Switch>
+         <Route path="/home" component={Home} />
+        <Route path="/search" component={Articles} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         {isLoggedIn && (
           <Switch>
-            <Route exact path="/home" component={UserHome} />
+            {/* <Route exact path="/home" component={Home} /> */}
             {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
