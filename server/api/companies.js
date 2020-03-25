@@ -26,3 +26,4 @@ router.get('/:companyId', async (req, res, next) => {
         next(error);
     }
 });
+
