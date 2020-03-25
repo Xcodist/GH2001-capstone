@@ -46,21 +46,27 @@ export const auth = (
 ) => async dispatch => {
   let res
   try {
-    res = await axios.post(`http://localhost:8080/auth/${method}`, {
+    if(method === 'signup') {
+      res = await axios.post(`http://localhost:8080/auth/${method}`, {
       email,
       password,
       firstName,
       lastName
     })
+    } else {
+      res = await axios.post(`http://localhost:8080/auth/${method}`, {
+      email,
+      password
+    })
+  }
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
-
   try {
-    dispatch(getUser(res.data))
-    history.push('/home')
-    chrome.storage.local.set({isLoggedIn: true, 'user': {...res.data}}, function() {
+    chrome.storage.local.set({'isLoggedIn': true, 'user': {...res.data}}, function() {
       console.log('values are set to ', res.data)
+      dispatch(getUser(res.data))
+      history.push('/home')
     });
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
@@ -71,7 +77,7 @@ export const logout = () => async dispatch => {
   try {
     await axios.post('http://localhost:8080/auth/logout')
     dispatch(removeUser())
-    chrome.storage.local.set({isLoggedIn: false, 'user': {}}, function () {
+    chrome.storage.local.remove(['isLoggedIn', 'user'], function () {
       console.log('removing users data from local storage')
     })
     history.push('/login')
