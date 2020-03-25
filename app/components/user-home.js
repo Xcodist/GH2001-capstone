@@ -34,8 +34,38 @@
 // }
 
 
-import React from 'react';
+import React, {Component} from 'react';
 import Navbar from './navbar';
+
+// class Home extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       domain: '',
+//       headlines: []
+//     }
+//   }
+
+//   componentDidMount() {
+//     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+//       const url = new URL(tabs[0].url);
+//       const domain = url.hostname;
+//       this.setState({
+//         domain: domain,
+//       });
+//       this.getHeadlines(domain);
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>Yolo</h1>
+//       </div>
+//     )
+//   }
+// }
 
 const Home = () => {
 
