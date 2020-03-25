@@ -41,12 +41,16 @@ export const auth = (
   email,
   password,
   method,
+  firstName,
+  lastName
 ) => async dispatch => {
   let res
   try {
     res = await axios.post(`http://localhost:8080/auth/${method}`, {
       email,
-      password
+      password,
+      firstName,
+      lastName
     })
   } catch (authError) {
     return dispatch(getUser({error: authError}))
@@ -67,6 +71,9 @@ export const logout = () => async dispatch => {
   try {
     await axios.post('http://localhost:8080/auth/logout')
     dispatch(removeUser())
+    chrome.storage.local.set({isLoggedIn: false, 'user': {}}, function () {
+      console.log('removing users data from local storage')
+    })
     history.push('/login')
   } catch (err) {
     console.error(err)
