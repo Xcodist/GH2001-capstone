@@ -10,6 +10,21 @@ const AuthForm = props => {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
+      {(name === 'signup') ? 
+        (<div>
+        <div>
+            <label htmlFor="firstName">
+                <small>First Name</small>
+            </label>
+            <input name="firstName" type="text" />
+        </div>
+        <div>
+            <label htmlFor="lastName">
+                <small>Last Name</small>
+            </label>
+            <input name="lastName" type="text" />
+        </div>
+        </div>) : <span /> }
         <div>
           <label htmlFor="email">
             <small>Email</small>
@@ -56,8 +71,10 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
+      const firstName = evt.target.firstName.value
+      const lastName = evt.target.lastName.value
       console.log('inside the thunk', formName, email, password)
-      dispatch(auth(email, password, formName))
+      dispatch(auth(email, password, formName, firstName, lastName))
     }
   }
 }
