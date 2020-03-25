@@ -10,7 +10,7 @@ const AuthForm = props => {
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
-      {(name === 'signup') ? 
+      {(name === 'signup') ?
         (<div>
         <div>
             <label htmlFor="firstName">
