@@ -79,7 +79,6 @@ const mapDispatch = dispatch => {
         console.log('inside the thunk', formName, email, password)
        dispatch(auth(email, password, formName))
       }
-
     }
   }
 }
