@@ -4,7 +4,7 @@ import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
-import Home from "./components/user-home";
+import Home from "./components/home";
 import Articles from "./components/article";
 import { me } from "./store/users";
 
@@ -49,7 +49,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
