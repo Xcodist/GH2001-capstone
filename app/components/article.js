@@ -23,6 +23,7 @@ class Articles extends Component {
       .get("https://newsapi.org/v2/everything", {
         params: {
           q: query,
+          domains: 'nytimes.com, theintercept.com, jacobinmag.com, thenation.com, vice.com',
           language: "en",
           apiKey: process.env.NEWS_API_KEY
         }
