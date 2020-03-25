@@ -9,7 +9,7 @@ router.get('/:company', async (req, res, next) => {
     newsapi.v2.everything({
       q: `${company}`,
       sources: 'bbc-news,the-verge',
-        domains: 'bbc.co.uk, techcrunch.com',
+      domains: 'bbc.co.uk, techcrunch.com',
       from: '2020-3-23',
       to: '2020-1-19',
       language: 'en',
