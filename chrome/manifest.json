@@ -8,6 +8,10 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
+  "background": {
+    "scripts": ["script.js"],
+    "persistent": true
+  },
   "browser_action": {
     "default_title": "Join the Movement",
     "default_popup": "index.html"
@@ -15,6 +19,8 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
-    "contextMenus", "tabs", "storage"
+    "contextMenus", "tabs", "storage",
+    "https://*/*cart*",
+    "http://*/*cart*"
   ]
 }
