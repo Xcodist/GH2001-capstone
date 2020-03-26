@@ -1,27 +1,29 @@
 const request = require("request");
 const cheerio = require("cheerio");
-cheerioTableparser = require("cheerio-tableparser");
 const fs = require("fs");
 const writeStream = fs.createWriteStream("post.csv");
+const axios = require("axios");
 
-for (let i = 1; i < 50; i++) {
-  request(
-    `https://www.csrhub.com/csrhub?page=${i}`,
-    (error, response, html) => {
-      if (!error && response.statusCode === 200) {
-        const $ = cheerio.load(html, {
-          normalizeWhitespace: true,
-          xmlMode: true
+const scrapecsr = async () => {
+  for (let i = 1; i < 450; i++) {
+    try {
+      const html = await axios.get(`https://www.csrhub.com/csrhub?page=${i}`);
+      const $ = await cheerio.load(html.data, {
+        normalizeWhitespace: true,
+        xmlMode: true
+      });
+      $("tr").each((i, el) => {
+        let text = $(el)
+          .text()
+          .replace(/\s\+/g, "");
+        writeStream.write(`${text} \n`);
       });
 
-        $('tr').each((i, el) => {
-          let text = $(el);
-            .text()
-            .replace(/\s\+/g, '')
-          writeStream.write(`${text} \n`)
-        })
-        console.log('scraping complete');
-      }
+      console.log(`scraping page ${i} complete`);
+    } catch (err) {
+      console.log(err);
     }
-  );
-}
+  }
+};
+
+scrapecsr();
