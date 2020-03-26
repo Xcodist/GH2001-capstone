@@ -28,7 +28,6 @@ class App extends React.Component {
           const idx = companyName.indexOf(".")
           companyName = companyName.slice(0, idx)
         }
-        companyName = companyName[0].toUpperCase() + companyName.slice(1)
         this.setState({
           domain: companyName,
         })
@@ -36,7 +35,6 @@ class App extends React.Component {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".")
           let companyName = domain.slice(0, idx)
-          companyName = companyName[0].toUpperCase() + companyName.slice(1)
           this.setState({
             domain: companyName,
           });
