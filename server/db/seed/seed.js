@@ -1,17 +1,26 @@
 const db = require("..");
 const fs = require("fs");
 const path = require("path");
-// const companies = require('./companies.json')
 
 const { User, Company } = require("../models");
 
-const companySeed = JSON.parse(
+const upperCaseCompanies = JSON.parse(
   fs.readFileSync(path.join(__dirname, '/companies.json'), 'utf8')
 )
 
-const userSeed = require("./userSeed");
+let companySeed = upperCaseCompanies.map((company) => {
+  let newObj = {
+    name: '',
+    rating: company.rating
+  }
+    for (let i = 0; i < company.name.length; i++) {
+      let currentLetter = company.name[i];
+      newObj.name += currentLetter.toLowerCase()
+    }
+    return newObj
+})
 
-console.log(userSeed);
+const userSeed = require("./userSeed");
 
 async function seed() {
   await db.sync({ force: true });
