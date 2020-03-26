@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const Op = Sequelize.Op;
+
 
 const Company = db.define('company', {
   name: {
@@ -12,6 +14,17 @@ const Company = db.define('company', {
     default: 60
   }
 })
+
+Company.findCompany = async function(name) {
+  const company = await this.findAll({
+    where: {
+      name: {
+        [Op.like]: `%${name}%`
+      }
+    }
+  })
+  return company
+}
 
 
 
