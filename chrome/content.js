@@ -1,21 +1,17 @@
-// chrome.windows.onFocusChanged.addListener(function(){
-//     chrome.tabs.query({
-//       active: true,
-//       currentWindow: true
-//     }, function(tabs) {
-//       var tab = tabs[0];
-//       var url = tab.url;
-//     //   console.log(tab);
-//     //   console.log('this is the url', url)
-//       if(url.includes('cart')) {
-//         //   const msg = {txt: 'cart is recognized'}
-//         //   chrome.tabs.sendMessage(tab.id, msg)
-//         console.log('cart is recognized')
-//       } else {
-//         // const msg = {txt: 'not in cart'}
-//         // chrome.tabs.sendMessage(tab.id, msg)
-//         console.log('not in cart')
-//       }
-//     });
-//   });
+chrome.runtime.onMessage.addListener(gotMessage)
 
+function gotMessage(message, sender, sendResponse) {
+    // console.log(message)
+    if(message.txt === 'cart') {
+        let items = document.getElementsByClassName('a-size-medium sc-product-title')
+        let cartList = []
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i].innerText;
+            // console.log(item)
+            cartList.push(item)
+            
+          }
+        
+        console.log(cartList)
+    }
+}
