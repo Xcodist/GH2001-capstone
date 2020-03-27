@@ -8,21 +8,6 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-<<<<<<< HEAD
-=======
-  "content_scripts": [
-    {
-      "matches": [ "<all_urls>"],
-      "js": [ "content.js"]
-    }
-  ],
-  "background": {
-    "scripts": [
-      "script.js"
-    ],
-    "persistent": true
-  },
->>>>>>> d796820f3d4388b9db5623cd25ae605a16b0546d
   "browser_action": {
     "default_title": "Join the Movement",
     "default_popup": "index.html"
