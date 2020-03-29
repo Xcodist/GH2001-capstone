@@ -3,13 +3,14 @@
 //boolean to decide if page has cart == may need state
 //if statement to decide what face
 
-
+import React, { Component } from "react";
+import Axios from "axios";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
+      company: ""
     };
     this.getCompany = this.getCompany.bind(this);
   }
@@ -22,7 +23,6 @@ export default class Home extends Component {
     Axios.get(`http://localhost:8080/api/companies?name=${name}`)
       .then(company => {
         this.setState({
-          ...this.state,
           company: company.data
         });
       })
@@ -32,6 +32,7 @@ export default class Home extends Component {
   }
 
   render() {
+    console.log(this.state);
     const company = this.state.company;
     return company[0] ? (
       <div>{company[0].rating}</div>
