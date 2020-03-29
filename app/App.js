@@ -40,9 +40,6 @@ class App extends React.Component {
           });
         }
       }
-      // this.setState({
-      //   domain: domain
-      // });
     });
   }
 
@@ -52,7 +49,7 @@ class App extends React.Component {
       <div>
         <Navbar state={this.state} />
         <Switch>
-          <Route path="/home" render={props => <Home {...this.state} />} />
+          <Route exact path="/" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
