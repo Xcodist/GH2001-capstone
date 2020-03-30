@@ -24,8 +24,6 @@ export default class Cart extends React.Component {
         return cart
     }
   
-        
-
 
     render(){
         console.log(this.state)
