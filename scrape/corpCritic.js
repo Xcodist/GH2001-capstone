@@ -12,6 +12,8 @@ const puppeteer = require('puppeteer');
     const sections = await page.$$('#AtoZList a')
     for (const button of sections) {
       button.click()
+
+      await page.waitForSelector
     }
   } catch(err) {
     console.log('scrape err', err)
