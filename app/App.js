@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import Navbar from "./components/navbar";
+//import Navbar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
-import Home from "./components/home";
+import Home from "./components/user-home";
 import Articles from "./components/article";
 import { me } from "./store/users";
+import BottomAppBar from "./components/navbar";
+import {Header} from "./components/header";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +31,7 @@ class App extends React.Component {
           const idx = companyName.indexOf(".")
           companyName = companyName.slice(0, idx)
         }
+        companyName = companyName[0].toUpperCase() + companyName.slice(1)
         this.setState({
           domain: companyName,
         })
@@ -35,6 +39,7 @@ class App extends React.Component {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".")
           let companyName = domain.slice(0, idx)
+          companyName = companyName[0].toUpperCase() + companyName.slice(1)
           this.setState({
             domain: companyName,
           });
@@ -47,10 +52,12 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
-        <Navbar state={this.state} />
+        <Header />
+        <BottomAppBar state={this.state} />
         <Switch>
           <Route path="/home" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
@@ -82,7 +89,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData: () => dispatch(me())
+    loadInitialData: me
   };
 };
 
