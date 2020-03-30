@@ -6,11 +6,6 @@ let client = new GSR.GoogleSearchResults(
   "c88292a99c393afebed7524cf431848fbf998b0cbfe2654a81b50525dae23148"
 );
 
-// const products = [
-//   "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black",
-//   "nintendo switch"
-// ];
-
 const config = item => ({
   engine: "google",
   q: `${item}`,
