@@ -3,8 +3,9 @@ import React, { Component } from "react";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
 import { Login, Signup } from "./components/auth-form";
-import Home from "./components/user-home";
+import Home from "./components/home";
 import Articles from "./components/article";
 import { me } from "./store/users";
 import BottomAppBar from "./components/navbar";
@@ -45,9 +46,6 @@ class App extends React.Component {
           });
         }
       }
-      // this.setState({
-      //   domain: domain
-      // });
     });
   }
 
@@ -59,10 +57,11 @@ class App extends React.Component {
         <Header />
         <BottomAppBar state={this.state} />
         <Switch>
-          <Route path="/home" render={props => <Home {...this.state} />} />
+          <Route exact path="/home" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
+          <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
           {isLoggedIn && (
             <Switch>
               {/* <Route exact path="/home" component={Home} /> */}
