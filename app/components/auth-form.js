@@ -9,40 +9,50 @@ const AuthForm = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
+      <form className="form-login" onSubmit={handleSubmit} name={name}>
       {(name === 'signup') ?
         (<div>
         <div>
+        <p className="float">
             <label htmlFor="firstName">
                 <small>First Name</small>
             </label>
             <input name="firstName" type="text" />
+          </p>
         </div>
         <div>
+        <p className="float">
             <label htmlFor="lastName">
                 <small>Last Name</small>
             </label>
             <input name="lastName" type="text" />
+          </p>
         </div>
         </div>) : <span /> }
         <div>
+        <p className="float">
           <label htmlFor="email">
             <small>Email</small>
           </label>
           <input name="email" type="text" />
+        </p>
         </div>
         <div>
+        <p className="float">
           <label htmlFor="password">
             <small>Password</small>
           </label>
           <input name="password" type="password" />
+          </p>
         </div>
         <div>
+        <p className="clearfix">
           <button type="submit">{displayName}</button>
+          </p>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      {/* <a href="/auth/google">{displayName} with Google</a> */}
     </div>
   )
 }
@@ -71,14 +81,10 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      if(evt.target.firstName && evt.target.lastName) {
-        const firstName = evt.target.firstName.value
-        const lastName = evt.target.lastName.value
-        dispatch(auth(email, password, formName, firstName, lastName))
-      } else {
-        console.log('inside the thunk', formName, email, password)
-       dispatch(auth(email, password, formName))
-      }
+      const firstName = evt.target.firstName.value
+      const lastName = evt.target.lastName.value
+      console.log('inside the thunk', formName, email, password)
+      dispatch(auth(email, password, formName, firstName, lastName))
     }
   }
 }

@@ -83,6 +83,15 @@ const NotLoggedIn = () => (
       variant="button"
       color="textPrimary"
       component={RouterLink}
+      to="/altCart"
+      className={useStyles().link}
+    >
+      AltCart
+    </Link>
+    <Link
+      variant="button"
+      color="textPrimary"
+      component={RouterLink}
       to="/signup"
       className={useStyles().link}
     >
