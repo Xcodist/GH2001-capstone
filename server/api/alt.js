@@ -16,26 +16,6 @@ const config = item => ({
   location: "United States"
 });
 
-// const searchResult = results => {
-//   return results.shopping_results.reduce(
-//     (lowestPriceCompany, currentCompany) => {
-//       if (
-//         !currentCompany.source.includes("Walmart") &&
-//         !currentCompany.source.includes("Target") &&
-//         !currentCompany.source.includes("Amazon")
-//       ) {
-//         return lowestPriceCompany.extracted_price <
-//           currentCompany.extracted_price
-//           ? lowestPriceCompany
-//           : currentCompany;
-//       }
-//       else {
-//         return {}
-//       }
-//     }, {extracted_price: Number.MAX_SAFE_INTEGER}
-//   );
-// };
-
 const getLowestPrice = result => {
   let lowestPrice = {};
   result.shopping_results.map(item => {
