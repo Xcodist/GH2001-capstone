@@ -8,7 +8,6 @@ body {
   font-family: Roboto;
 }
 
-
 .form-login,
 .form-signup {
   width: 340px;
@@ -193,4 +192,14 @@ body {
   border: 1px solid #991993;
   color: black;
   text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.altProd {
+  display: flex;
+  padding: 10px;
+}
+
+.thumbnail {
+  width: 75%;
+  height: 75%;
 }
