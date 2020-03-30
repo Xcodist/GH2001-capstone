@@ -8,6 +8,8 @@ import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
+import { me } from "./store/users";
+import Cart from './components/cartItems'
 import AltCart from './components/altCart'
 
 
@@ -59,15 +61,15 @@ class App extends React.Component {
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
           {isLoggedIn && (
             <Switch>
-              {/* <Route exact path="/home" component={Home} /> */}
-              {/* {isAdmin && (
+              <Route exact path="/home" component={Home} /> */}
+              {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
               </Switch>
-            )} */}
+            )}
             </Switch>
           )}
-        </Switch>{" "}
+          </Switch>{" "} 
       </div>
     );
   }
