@@ -194,3 +194,17 @@ body {
   color: black;
   text-shadow: 0 1px rgba(255, 255, 255, 0.3);
 }
+
+
+.App-header {
+  background-color: #991993;
+  height: 50px;
+  padding: 10px;
+  color: white;
+}
+.App-title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
