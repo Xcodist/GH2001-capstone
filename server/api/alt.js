@@ -21,46 +21,47 @@ const config = item => ({
   location: "United States"
 });
 
-const searchResult = results => {
-  return results.shopping_results.reduce(
-    (lowestPriceCompany, currentCompany) => {
-      if (
-        currentCompany.source !== "Walmart" &&
-        currentCompany.source !== "Target" &&
-        currentCompany.source !== "Amazon"
-      ) {
-        return lowestPriceCompany.extracted_price <
-          currentCompany.extracted_price
-          ? lowestPriceCompany
-          : currentCompany;
-      }
-      else {
-        return {}
-      }
-    }, {extracted_price: Number.MAX_SAFE_INTEGER}
-  );
-};
-
-// const getLowestPrice = result => {
-//   let lowestPrice = {};
-//   result.shopping_results.map(item => {
-//     if (
-//       item.source !== "Walmart" &&
-//       item.source !== "Target" &&
-//       item.source !== "Amazon"
-//     ) {
-//       if (!Object.keys(lowestPrice).length) {
-//         lowestPrice = item;
-//       } else {
-//         if (item.extracted_price < lowestPrice.extracted_price) {
-//           lowestPrice = item;
-//         }
+// const searchResult = results => {
+//   return results.shopping_results.reduce(
+//     (lowestPriceCompany, currentCompany) => {
+//       if (
+//         !currentCompany.source.includes("Walmart") &&
+//         !currentCompany.source.includes("Target") &&
+//         !currentCompany.source.includes("Amazon")
+//       ) {
+//         return lowestPriceCompany.extracted_price <
+//           currentCompany.extracted_price
+//           ? lowestPriceCompany
+//           : currentCompany;
 //       }
-//       return item;
-//     }
-//   });
-//   return lowestPrice;
+//       else {
+//         return {}
+//       }
+//     }, {extracted_price: Number.MAX_SAFE_INTEGER}
+//   );
 // };
+
+const getLowestPrice = result => {
+  let lowestPrice = {};
+  result.shopping_results.map(item => {
+    console.log(item.source)
+    if (
+      !item.source.includes("Walmart") &&
+      !item.source.includes("Target") &&
+      !item.source.includes("Amazon")
+    ) {
+      if (!Object.keys(lowestPrice).length) {
+        lowestPrice = item;
+      } else {
+        if (item.extracted_price < lowestPrice.extracted_price) {
+          lowestPrice = item;
+        }
+      }
+      return item;
+    }
+  });
+  return lowestPrice;
+};
 
 router.get("/", async (req, res, next) => {
   try {
@@ -68,7 +69,7 @@ router.get("/", async (req, res, next) => {
     let altAr = [];
     cartAr.forEach(product => {
       client.json(config(product), result => {
-        const lowestPrice = searchResult(result);
+        const lowestPrice = getLowestPrice(result);
         altAr.push(lowestPrice);
         if (altAr.length === cartAr.length) {
           res.json(altAr);
