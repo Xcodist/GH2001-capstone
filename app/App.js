@@ -8,13 +8,10 @@ import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
-<<<<<<< HEAD
 import { me } from "./store/users";
 import Cart from './components/cartItems'
-=======
 import AltCart from './components/altCart'
 
->>>>>>> master
 
 class App extends React.Component {
   constructor(props) {
@@ -55,8 +52,7 @@ class App extends React.Component {
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
-        <Cart />
-        {/* <Navbar state={this.state} />
+        <Navbar state={this.state} />
         <Switch>
           <Route exact path="/home" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
@@ -65,15 +61,15 @@ class App extends React.Component {
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
           {isLoggedIn && (
             <Switch>
-              {/* <Route exact path="/home" component={Home} /> */}
-              {/* {isAdmin && (
+              <Route exact path="/home" component={Home} /> */}
+              {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
               </Switch>
-            )} */}
-            {/* </Switch> */}
-          {/* )} */}
-        {/* // </Switch>{" "}  */}
+            )}
+            </Switch>
+          )}
+          </Switch>{" "} 
       </div>
     );
   }
