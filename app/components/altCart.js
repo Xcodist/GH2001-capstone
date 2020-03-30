@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
+
+
 const products = [
   "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black",
   "nintendo switch"
@@ -25,6 +27,7 @@ export default class AltCart extends Component {
 
   render() {
     console.log(this.state);
+   
     const alternatives = this.state.alternatives;
     return alternatives.length > 0 ? (
       <div>
