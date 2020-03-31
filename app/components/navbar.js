@@ -16,7 +16,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
-
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -25,7 +25,22 @@ const useStyles = makeStyles(theme => ({
   },
   grow: {
     flexGrow: 1,
-  }
+  },
+  // SearchIcon:{
+  //   flex: auto,
+  // },
+  // PersonIcon:{
+  //   flex: auto,
+  // },
+  // HomeIcon: {
+  //   flex: auto,
+  // },
+  // DescriptionIcon:{
+  //   flex: auto,
+  // }
+  // toolbarButtons: {
+  //   flex: auto,
+  // }
 
 }));
 
@@ -51,7 +66,10 @@ const useStyles = makeStyles(theme => ({
           <IconButton onClick ={props.handleClick} component={RouterLink} to="/home">
           <HomeIcon/>
           </IconButton>
-          <IconButton onClick ={props.handleClick} component={RouterLink} to="/search">
+          <IconButton onClick ={props.handleClick} component={RouterLink} to="/news">
+           <DescriptionIcon/>
+           </IconButton>
+           <IconButton onClick ={props.handleClick} component={RouterLink} to="/search">
            <SearchIcon/>
            </IconButton>
           <IconButton onClick ={props.handleClick} component={RouterLink} to="/signup">
