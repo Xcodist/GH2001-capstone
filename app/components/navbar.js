@@ -1,24 +1,3 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import {connect} from 'react-redux'
-// import {Link as RouterLink} from 'react-router-dom'
-// import {logout} from '../store'
-// import AppBar from '@material-ui/core/AppBar'
-// import Toolbar from '@material-ui/core/Toolbar'
-// import Typography from '@material-ui/core/Typography'
-// import {makeStyles} from '@material-ui/core/styles'
-// import Button from '@material-ui/core/Button'
-// import Link from '@material-ui/core/Link'
-// import style from './navbar.css';
-
-
-
-
-
-
-
-
-
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -64,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 
   return (
-    <AppBar position="fixed" color="primary" className={classes.appBar}>
+    <AppBar position="fixed" style={{ background: 'transparent'}} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         {/* {isLoggedIn ? ( */}
           <IconButton onClick ={props.handleClick} component={RouterLink} to="/home">
