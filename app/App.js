@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
+import Stores from "./components/storeAlt";
 import { me } from "./store/users";
+import BottomAppBar from "./components/navbar";
+import {Header} from "./components/header";
 import AltCart from './components/altCart'
 import { retrieveCart } from './store/cart'
 
@@ -50,7 +53,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
@@ -58,19 +60,20 @@ class App extends React.Component {
         <BottomAppBar state={this.state} />
         <Switch>
           <Route exact path="/home" render={props => <Home {...this.state} />} />
-          <Route path="/search" render={props => <Articles {...this.state} />} />
+          <Route path="/news" render={props => <Articles {...this.state} />} />
+          <Route path="/search" render={props => <Stores {...this.props}/>}/>
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <Switch>
-              <Route exact path="/home" component={Home} /> */}
-              {isAdmin && (
+              <Route exact path="/home" component={Home} />  */}
+              {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
-              </Switch>
-            )}
-            </Switch>
+              </Switch> */}
+            {/* )} */}
+            {/* </Switch> */}
           )}
           </Switch>{" "}
       </div>
