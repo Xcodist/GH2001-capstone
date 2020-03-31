@@ -201,9 +201,17 @@ body {
   padding: 10px;
   color: white;
 }
+
 .App-title {
     font-size: 1.5em;
     text-align: center;
 }
+
+/* .Stores {
+
+} */
+.nobull {
+  list-style-type: none;
+ }
 
 
