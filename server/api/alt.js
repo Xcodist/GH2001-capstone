@@ -19,7 +19,6 @@ const config = item => ({
 const getLowestPrice = result => {
   let lowestPrice = {};
   result.shopping_results.map(item => {
-    console.log(item.source)
     if (
       !item.source.includes("Walmart") &&
       !item.source.includes("Target") &&
