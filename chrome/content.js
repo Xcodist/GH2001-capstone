@@ -5,9 +5,7 @@ if (window.location.href.includes('cart')) {
               let item = items[i].innerText;
               cartList.push(item)
             }
-          console.log(cartList)
           chrome.storage.local.set({"items": cartList}, function() {
               console.log('Value is set to ' + cartList);
           });
   }
-  
