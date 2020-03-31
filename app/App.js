@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BottomAppBar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -7,7 +8,6 @@ import Home from "./components/home";
 import Articles from "./components/article";
 import Stores from "./components/storeAlt";
 import { me } from "./store/users";
-import BottomAppBar from "./components/navbar";
 import {Header} from "./components/header";
 import AltCart from './components/altCart'
 import { retrieveCart } from './store/cart'
@@ -33,7 +33,6 @@ class App extends React.Component {
           const idx = companyName.indexOf(".")
           companyName = companyName.slice(0, idx)
         }
-        companyName = companyName[0].toUpperCase() + companyName.slice(1)
         this.setState({
           domain: companyName,
         })
@@ -41,7 +40,6 @@ class App extends React.Component {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".")
           let companyName = domain.slice(0, idx)
-          companyName = companyName[0].toUpperCase() + companyName.slice(1)
           this.setState({
             domain: companyName,
           });
