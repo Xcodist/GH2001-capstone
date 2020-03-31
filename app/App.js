@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import Navbar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { me } from "./store/users";
 import PropTypes from "prop-types";
-
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
-import Cart from './components/cartItems'
+import { me } from "./store/users";
 import AltCart from './components/altCart'
 import { retrieveCart } from './store/cart'
 
@@ -33,6 +31,7 @@ class App extends React.Component {
           const idx = companyName.indexOf(".")
           companyName = companyName.slice(0, idx)
         }
+        companyName = companyName[0].toUpperCase() + companyName.slice(1)
         this.setState({
           domain: companyName,
         })
@@ -40,6 +39,7 @@ class App extends React.Component {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".")
           let companyName = domain.slice(0, idx)
+          companyName = companyName[0].toUpperCase() + companyName.slice(1)
           this.setState({
             domain: companyName,
           });
@@ -50,10 +50,12 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
-        <Navbar state={this.state} />
+        <Header />
+        <BottomAppBar state={this.state} />
         <Switch>
           <Route exact path="/home" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
