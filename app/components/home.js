@@ -45,17 +45,7 @@ export default class Home extends Component {
     ) : (
       <div>
         <p>
-          Hello! We are _____ . Thank you for taking us shopping with you. We
-          are here to help guide you toward making valuable consumer choices
-          that benefit the community and world around you. That way you can shop
-          with a piece of mind knowing where your hard earned money is going and
-          with satisfaction that you are an informed consumer. A couple of
-          pointers along the way. As you shop we will be right there with you,
-          giving you a thumbs up or down based on the companies responsibility
-          rating. We are also here to give you direction to learn more about the
-          companies you are purchasing from and a little reward if those
-          companies are good players. Just click on the icon to find out more.
-          Check your account to see if you have earned rewards and of course...
+          Hello! Welcome to AltCart. We are here to help keep you informed as a consumer. Thank you for taking us shopping with you.
           Happy Shopping!
         </p>
       </div>
