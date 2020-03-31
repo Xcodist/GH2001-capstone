@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Navbar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -11,7 +10,6 @@ import Stores from "./components/storeAlt";
 import { me } from "./store/users";
 import BottomAppBar from "./components/navbar";
 import {Header} from "./components/header";
-import Cart from './components/cartItems'
 import AltCart from './components/altCart'
 
 
@@ -53,7 +51,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
@@ -66,15 +63,15 @@ class App extends React.Component {
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <Switch>
-              <Route exact path="/home" component={Home} /> */}
-              {isAdmin && (
+              <Route exact path="/home" component={Home} />  */}
+              {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
-              </Switch>
-            )}
-            </Switch>
+              </Switch> */}
+            {/* )} */}
+            {/* </Switch> */}
           )}
           </Switch>{" "}
       </div>
@@ -92,7 +89,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData: me
+    loadInitialData: () => dispatch(me())
   };
 };
 
