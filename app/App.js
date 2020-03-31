@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
+import Stores from "./components/storeAlt";
 import { me } from "./store/users";
 import BottomAppBar from "./components/navbar";
 import {Header} from "./components/header";
@@ -60,7 +61,8 @@ class App extends React.Component {
         <BottomAppBar state={this.state} />
         <Switch>
           <Route exact path="/home" render={props => <Home {...this.state} />} />
-          <Route path="/search" render={props => <Articles {...this.state} />} />
+          <Route path="/news" render={props => <Articles {...this.state} />} />
+          <Route path="/search" render={props => <Stores {...this.props}/>}/>
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
