@@ -83,7 +83,6 @@ const mapDispatch = dispatch => {
       const password = evt.target.password.value
       const firstName = evt.target.firstName.value
       const lastName = evt.target.lastName.value
-      console.log('inside the thunk', formName, email, password)
       dispatch(auth(email, password, formName, firstName, lastName))
     }
   }

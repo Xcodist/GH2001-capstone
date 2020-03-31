@@ -1,3 +1,4 @@
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -10,204 +11,28 @@ import {makeStyles} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import style from './navbar.css';
+import SearchIcon from '@material-ui/icons/Search';
+import PersonIcon from '@material-ui/icons/Person';
+import HomeIcon from '@material-ui/icons/Home';
+import IconButton from '@material-ui/core/IconButton';
+import SvgIcon from '@material-ui/core/SvgIcon';
+
 
 const useStyles = makeStyles(theme => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none'
-    }
-  },
   appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    top: 'auto',
+    bottom: 0,
   },
-  toolbar: {
-    flexWrap: 'wrap'
-  },
-  toolbarTitle: {
-    flexGrow: 1
-  },
-  link: {
-    margin: theme.spacing(1, 1.5)
-  },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6)
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'dark'
-        ? theme.palette.grey[700]
-        : theme.palette.grey[200]
-  },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2)
-  },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6)
-    }
+  grow: {
+    flexGrow: 1,
   }
-}))
 
-const NotLoggedIn = () => (
-  <div>
-    {/* The navbar will show these links before you log in */}
-    <Link
-      variant="button"
-      color="textPrimary"
-      to="/home"
-      component={RouterLink}
-      className={useStyles().link}
-    >
-      Home
-    </Link>
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/search"
-      className={useStyles().link}
-    >
-      Search
-    </Link>
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/altCart"
-      className={useStyles().link}
-    >
-      AltCart
-    </Link>
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/signup"
-      className={useStyles().link}
-    >
-      Sign Up
-    </Link>
-    <Button
-      component={RouterLink}
-      to="/login"
-      color="primary"
-      variant="outlined"
-      className={useStyles().link}
-    >
-      Login
-    </Button>
-  </div>
-)
+}));
 
-const LoggedIn = props => (
-  <div>
-    {/* The navbar will show these links after you log in */}
 
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/home"
-      className={useStyles().link}
-    >
-      Home
-    </Link>
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/search"
-      className={useStyles().link}
-    >
-      Search
-    </Link>
-    {/* <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/myShops"
-      className={useStyles().link}
-    >
-      My Shops
-    </Link> */}
-    <Button
-      component={RouterLink}
-      to="#"
-      color="primary"
-      variant="outlined"
-      className={useStyles().link}
-      onClick={props.handleClick}
-    >
-      Logout
-    </Button>
-  </div>
-)
 
-const Admin = props => (
-  <div>
-    {/* The navbar will show these links after admins log in */}
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/home"
-      className={useStyles().link}
-    >
-      Home
-    </Link>
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/search"
-      className={useStyles().link}
-    >
-      Search
-    </Link>
-    {/* <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/cart"
-      className={useStyles().link}
-    >
-      Cart
-    </Link> */}
-    <Link
-      variant="button"
-      color="textPrimary"
-      component={RouterLink}
-      to="/admin"
-      className={useStyles().link}
-    >
-      Admin
-    </Link>
-    <Button
-      component={RouterLink}
-      to="#"
-      color="primary"
-      variant="outlined"
-      className={useStyles().link}
-      onClick={props.handleClick}
-    >
-      Logout
-    </Button>
-  </div>
-)
-
-const Navbar = props => {
-  // debugger
-  // console.log(props)
+  const BottomAppBar = props => {
+    
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
@@ -220,25 +45,19 @@ const Navbar = props => {
   }
 
   return (
-    <AppBar
-      position="sticky"
-      color="default"
-      elevation={0}
-      className={classes.appBar}
-    >
+    <AppBar position="fixed" style={{ background: 'transparent'}} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography className={classes.toolbarTitle}>
-          <Link
-            variant="h6"
-            color="inherit"
-            noWrap
-            component={RouterLink}
-            to="/"
-          >
-            F*$! Amazon
-          </Link>
-        </Typography>
-        <nav>{navRoutes()}</nav>
+        {/* {isLoggedIn ? ( */}
+          <IconButton onClick ={props.handleClick} component={RouterLink} to="/home">
+          <HomeIcon/>
+          </IconButton>
+          <IconButton onClick ={props.handleClick} component={RouterLink} to="/search">
+           <SearchIcon/>
+           </IconButton>
+          <IconButton onClick ={props.handleClick} component={RouterLink} to="/signup">
+           <PersonIcon/>
+           </IconButton>
+        {/* <nav>{navRoutes()}</nav> */}
       </Toolbar>
     </AppBar>
   )
@@ -248,7 +67,6 @@ const Navbar = props => {
  * CONTAINER
  */
 const mapState = state => {
-  debugger
   return {
     isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin
@@ -259,17 +77,18 @@ const mapDispatch = dispatch => {
   function handleClick() {
     dispatch(logout())
   }
-  return {
+  return (
     handleClick
-  }
+  )
 }
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(BottomAppBar)
 
 /**
  * PROP TYPES
  */
-Navbar.propTypes = {
+BottomAppBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 }
+
