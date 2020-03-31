@@ -25,7 +25,22 @@ const useStyles = makeStyles(theme => ({
   },
   grow: {
     flexGrow: 1,
-  }
+  },
+  // SearchIcon:{
+  //   flex: auto,
+  // },
+  // PersonIcon:{
+  //   flex: auto,
+  // },
+  // HomeIcon: {
+  //   flex: auto,
+  // },
+  // DescriptionIcon:{
+  //   flex: auto,
+  // }
+  // toolbarButtons: {
+  //   flex: auto,
+  // }
 
 }));
 

@@ -13,6 +13,7 @@ export default class Home extends Component {
       company: ""
     };
     this.getCompany = this.getCompany.bind(this);
+    // this.rating = this.rating.bind(this);
   }
 
   componentDidMount() {
@@ -30,12 +31,17 @@ export default class Home extends Component {
         console.log(err);
       });
   }
+  // rating(company){
+  //   const company = this.state.company
+  //   if(company[0].rating < 65) return 'bad';
+  //   else return "good"
+  // }
 
   render() {
     console.log(this.state);
     const company = this.state.company;
     return company[0] ? (
-      <div>{company[0].rating}</div>
+      <div>{company[0].rating && this.rating}</div>
     ) : (
       <div>
         <p>
