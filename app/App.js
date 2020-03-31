@@ -10,6 +10,8 @@ import Articles from "./components/article";
 import { me } from "./store/users";
 import BottomAppBar from "./components/navbar";
 import {Header} from "./components/header";
+import Cart from './components/cartItems'
+import AltCart from './components/altCart'
 
 
 class App extends React.Component {
@@ -64,15 +66,15 @@ class App extends React.Component {
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
           {isLoggedIn && (
             <Switch>
-              {/* <Route exact path="/home" component={Home} /> */}
-              {/* {isAdmin && (
+              <Route exact path="/home" component={Home} /> */}
+              {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
               </Switch>
-            )} */}
+            )}
             </Switch>
           )}
-        </Switch>{" "}
+          </Switch>{" "}
       </div>
     );
   }

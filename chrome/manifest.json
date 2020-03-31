@@ -15,7 +15,7 @@
     }
   ],
   "background": {
-    "scripts": ["script.js"],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "browser_action": {
