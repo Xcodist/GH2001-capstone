@@ -32,7 +32,6 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log(this.state);
     const company = this.state.company;
     return company[0] ? (
       <div>{company[0].rating}</div>
