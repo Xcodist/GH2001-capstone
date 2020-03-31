@@ -1,29 +1,31 @@
 import React, { Component } from "react";
-import {fetchAlternatives} from '../store/alt'
-import { connect } from "react-redux";
-class AltCart extends Component {
+import Axios from "axios";
+
+const products = [
+  "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black",
+  "nintendo switch"
+];
+//to be imported from the content script cart array
+
+export default class AltCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartFetched: false
-    }
+      alternatives: []
+    };
   }
 
-  async componentDidMount() {
-    let cart = this.props.state.cart.map((item) => {
-      let parsed = ''
-      for (let i = 0; i < item.length; i++) {
-        if (item[i] !== ',') {
-          parsed += item[i]
-        }
-      }
-      return parsed
-    })
-    this.props.fetchAlternatives(cart)
+  componentDidMount() {
+    Axios.get(`http://localhost:8080/api/alt?cart=${products}`).then(res => {
+      this.setState({
+        alternatives: res.data
+      });
+    });
   }
 
   render() {
-    const alternatives = this.props.state.alt;
+    console.log(this.state);
+    const alternatives = this.state.alternatives;
     return alternatives.length > 0 ? (
       <div>
         {alternatives.map(alternative => {
@@ -53,13 +55,3 @@ class AltCart extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => ({
-  state: state
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchAlternatives: (cart) => dispatch(fetchAlternatives(cart))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AltCart)

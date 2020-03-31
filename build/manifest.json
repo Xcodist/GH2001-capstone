@@ -18,6 +18,12 @@
       ]
     }
   ],
+  "background": {
+    "scripts": [
+      "script.js"
+    ],
+    "persistent": true
+  },
   "browser_action": {
     "default_title": "Join the Movement",
     "default_popup": "index.html"

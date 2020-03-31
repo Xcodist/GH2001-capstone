@@ -22,6 +22,7 @@ const removeUser = () => ({type: REMOVE_USER})
  * THUNK CREATORS
  */
 export const me = () => async dispatch => {
+  debugger
   try {
   chrome.storage.local.get(['isLoggedIn', 'user'], function(data) {
     if(data.isLoggedIn) {
@@ -63,6 +64,7 @@ export const auth = (
   }
   try {
     chrome.storage.local.set({'isLoggedIn': true, 'user': {...res.data}}, function() {
+      console.log('values are set to ', res.data)
       dispatch(getUser(res.data))
       history.push('/home')
     });

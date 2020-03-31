@@ -39,6 +39,8 @@ class Articles extends Component {
   }
 
   render() {
+    console.log("state", this.state);
+    console.log("props", this.props);
     return (
       <div className="App">
         <h1 className="App-title">{this.state.domain}</h1>

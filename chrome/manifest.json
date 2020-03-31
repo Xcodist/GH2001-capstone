@@ -14,6 +14,10 @@
       "js": ["content.js"]
     }
   ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
   "browser_action": {
     "default_title": "Join the Movement",
     "default_popup": "index.html"
