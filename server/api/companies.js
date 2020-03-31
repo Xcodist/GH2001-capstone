@@ -7,7 +7,6 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
     try {
-        console.log(req.query.name)
         const companies = await Company.findCompany(req.query.name);
         res.json(companies);
     } catch (error) {
