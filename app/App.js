@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import Navbar from "./components/navbar";
+import BottomAppBar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { me } from "./store/users";
 import PropTypes from "prop-types";
-
 import { Login, Signup } from "./components/auth-form";
 import Home from "./components/home";
 import Articles from "./components/article";
+import { me } from "./store/users";
 import AltCart from './components/altCart'
+import { retrieveCart } from './store/cart'
 
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.loadInitialData();
-
+    this.props.retrieveCart()
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
@@ -31,6 +31,7 @@ class App extends React.Component {
           const idx = companyName.indexOf(".")
           companyName = companyName.slice(0, idx)
         }
+        companyName = companyName[0].toUpperCase() + companyName.slice(1)
         this.setState({
           domain: companyName,
         })
@@ -38,19 +39,23 @@ class App extends React.Component {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".")
           let companyName = domain.slice(0, idx)
+          companyName = companyName[0].toUpperCase() + companyName.slice(1)
           this.setState({
             domain: companyName,
           });
         }
       }
     });
+
   }
 
   render() {
+    console.log(this.state.domain)
     const { isLoggedIn, isAdmin } = this.props;
     return (
       <div>
-        <Navbar state={this.state} />
+        <Header />
+        <BottomAppBar state={this.state} />
         <Switch>
           <Route exact path="/home" render={props => <Home {...this.state} />} />
           <Route path="/search" render={props => <Articles {...this.state} />} />
@@ -67,7 +72,7 @@ class App extends React.Component {
             )}
             </Switch>
           )}
-          </Switch>{" "} 
+          </Switch>{" "}
       </div>
     );
   }
@@ -77,13 +82,15 @@ const mapState = state => {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
-    isAdmin: !!state.user.isAdmin
+    isAdmin: !!state.user.isAdmin,
+    state: state
   };
 };
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData: () => dispatch(me())
+    loadInitialData: () => dispatch(me()),
+    retrieveCart: () => dispatch(retrieveCart())
   };
 };
 
