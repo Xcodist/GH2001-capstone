@@ -47,31 +47,38 @@ const useStyles = makeStyles(theme => ({
 
 
   const BottomAppBar = props => {
-
-  const classes = useStyles()
-  let navRoutes = () => {
-    if (props.isAdmin) {
-      return <Admin handleClick={props.handleClick} />
-    } else if (props.isLoggedIn) {
-      return <LoggedIn handleClick={props.handleClick} />
-    } else {
-      return <NotLoggedIn />
+    function handleClick(e){
+      e.preventDefault();
+      if(e.target.name = 'home') history.push('/')
+      else if(e.target.name = 'news') history.push('/news')
+      else if(e.target.name = 'search') history.push('/search')
+      else if(e.target.name = 'signup') history.push('/signup')
+      else history.push('/')
     }
-  }
+  const classes = useStyles()
+  // let navRoutes = () => {
+  //   if (props.isAdmin) {
+  //     return <Admin handleClick={props.handleClick} />
+  //   } else if (props.isLoggedIn) {
+  //     return <LoggedIn handleClick={props.handleClick} />
+  //   } else {
+  //     return <NotLoggedIn />
+  //   }
+  // }
 
   return (
     <AppBar position="fixed" style={{ background: 'transparent'}} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-          <IconButton onClick ={props.handleClick} component={RouterLink} to="/home">
+          <IconButton name='home' onClick ={props.handleClick} component={RouterLink} to="/">
           <HomeIcon/>
           </IconButton>
-          <IconButton onClick ={props.handleClick} component={RouterLink} to="/news">
+          <IconButton name='news' onClick ={props.handleClick} component={RouterLink} to="/news">
            <DescriptionIcon/>
            </IconButton>
-           <IconButton onClick ={props.handleClick} component={RouterLink} to="/search">
+           <IconButton name='search' onClick ={props.handleClick} component={RouterLink} to="/search">
            <SearchIcon/>
            </IconButton>
-          <IconButton onClick ={props.handleClick} component={RouterLink} to="/signup">
+          <IconButton name='login' onClick ={props.handleClick} component={RouterLink} to="/login">
            <PersonIcon/>
            </IconButton>
         {/* <nav>{navRoutes()}</nav> */}
@@ -90,15 +97,15 @@ const mapState = state => {
   }
 }
 
-const mapDispatch = dispatch => {
-  function handleClick() {
-    dispatch(logout())
-  }
-  return (
-    handleClick
-  )
-}
-export default connect(mapState, mapDispatch)(BottomAppBar)
+// const mapDispatch = dispatch => {
+//   function handleClick() {
+//     dispatch((logout))
+//   }
+//   return (
+//     handleClick
+//   )
+// }
+export default connect(mapState)(BottomAppBar)
 
 /**
  * PROP TYPES
