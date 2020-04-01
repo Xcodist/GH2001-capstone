@@ -7,9 +7,9 @@ import React, { Component } from "react";
 import Axios from "axios";
 import AltCart from "./altCart";
 
-function Message() {
+const Message = () => {
   return (
-    <div>
+    <div className='message'>
       <h1>Welcome to AltCart</h1>
       <p>
         We are here to help keep you informed as a consumer. Thank you for
@@ -19,19 +19,20 @@ function Message() {
   );
 }
 
-function HasRating(company) {
-
+const HasRating = (props) => {
+  const company = props.company
   return (
     <div className="header">
-      {company[0].name}
+      {company.name}
       <br></br>
-      {company[0].rating}
+      {company.rating}
     </div>
-  )
+  );
 }
 
-function InCart() {
-  return <Altcart />
+const InCart = () => {
+  console.log('in cart')
+  return <AltCart />;
 }
 
 export default class Home extends Component {
@@ -42,16 +43,14 @@ export default class Home extends Component {
     };
     this.getCompany = this.getCompany.bind(this);
   }
-
-  componentDidMount() {
-    console.log('this.props in comp did mount', this.props)
-    this.getCompany(this.props.domain);
+  componentDidUpdate(prevState) {
+    if (this.props.domain.length !== prevState.domain.length) {
+      this.getCompany(this.props.domain);
+    }
   }
-
   getCompany(name) {
     Axios.get(`http://localhost:8080/api/companies?name=${name}`)
       .then(company => {
-        console.log('this is the  company in the getcompany', company)
         this.setState({
           company: company.data
         });
@@ -63,45 +62,28 @@ export default class Home extends Component {
 
   render() {
     const company = this.state.company;
-    console.log('this is company in the render', company);
-    const homeOptions = () => {
-      if(window.location.href.includes('cart' || 'checkout'|| 'basket')) {
-        return <InCart />
+    const homeOptions = company => {
+      if (chrome.location.href.includes("cart" || "checkout" || "basket")) {
+        console.log('site is cart')
+        return <InCart />;
+      } else if (company.rating) {
+        return (
+          <div>
+            <Message />
+            <HasRating company={company} />
+          </div>
+        );
+      } else {
+        return <Message />;
       }
-      else if(company[0].rating) {
-        return <HasRating company={company}/>
-      }
-      (<Message />)
-    }
+    };
+
     return company[0] ? (
-      <div>
-      {homeOptions()}
-      </div>
+      <div>{homeOptions(company[0])}</div>
     ) : (
       <div>
-        <h3>loading...</h3>
+        <h3 className='loading'>loading...</h3>
       </div>
-    )
-
-
+    );
   }
 }
-
-    // return company[0] ? (
-    //   <div>
-    //     <div className="header">
-    //       {company[0].name}
-    //       <br></br>
-    //       {company[0].rating}
-    //     </div>
-    //     <AltCart />
-    //   </div>
-    // ) : (
-    //   <div>
-    //     <h1>Welcome to AltCart</h1>
-    //     <p>
-    //       We are here to help keep you informed as a consumer. Thank you for
-    //       taking us shopping with you. Happy Shopping!
-    //     </p>
-    //   </div>
-    // );
