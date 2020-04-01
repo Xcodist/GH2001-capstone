@@ -45,7 +45,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+
   const BottomAppBar = props => {
+    
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
@@ -83,7 +85,6 @@ const useStyles = makeStyles(theme => ({
  * CONTAINER
  */
 const mapState = state => {
-  debugger
   return {
     isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin
