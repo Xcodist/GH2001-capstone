@@ -254,3 +254,16 @@ body {
   background-color: #ffb347;
   padding-top: 5px;
 }
+
+.stores {
+  text-align: center;
+  font-size: 16px
+}
+
+.shops-title {
+  text-align: center;
+}
+
+.nobull {
+  text-align: center
+}
