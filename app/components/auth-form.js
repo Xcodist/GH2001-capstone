@@ -81,6 +81,7 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
+
       if(evt.target.firstName && evt.target.lastName){
         const firstName = evt.target.firstName.value
         const lastName = evt.target.lastName.value
@@ -89,6 +90,7 @@ const mapDispatch = dispatch => {
 
       console.log('inside the thunk', formName, email, password)
       dispatch(auth(email, password, formName))
+
     }
   }
 }
