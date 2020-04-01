@@ -1,33 +1,33 @@
 import React, { Component } from "react";
-import Axios from "axios";
-
-const products = [
-  "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black",
-  "nintendo switch"
-];
-//to be imported from the content script cart array
-
-export default class AltCart extends Component {
+import {fetchAlternatives} from '../store/alt'
+import { connect } from "react-redux";
+class AltCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      alternatives: []
-    };
+      cartFetched: false
+    }
   }
 
-  componentDidMount() {
-    Axios.get(`http://localhost:8080/api/alt?cart=${products}`).then(res => {
-      this.setState({
-        alternatives: res.data
-      });
-    });
+  async componentDidMount() {
+    let cart = this.props.state.cart.map((item) => {
+      let parsed = ''
+      for (let i = 0; i < item.length; i++) {
+        if (item[i] !== ',') {
+          parsed += item[i]
+        }
+      }
+      return parsed
+    })
+    this.props.fetchAlternatives(cart)
   }
+
 
   render() {
-    console.log(this.state);
-    const alternatives = this.state.alternatives;
+    const alternatives = this.props.state.alt;
     return alternatives.length > 0 ? (
       <div>
+        <div className='header'>Your altCart:</div>
         {alternatives.map(alternative => {
           return (
             <div key={alternative.title}>
@@ -36,7 +36,10 @@ export default class AltCart extends Component {
                   <img className="thumbnail" src={alternative.thumbnail} />
                 </div>
                 <div className="rightCol">
-                  <a className="prodTitle" href={alternative.link}>
+                  <a className="prodTitle"
+                  onClick={() => {
+                    window.open(alternative.link)
+                  }}>
                     {alternative.title}
                   </a>
                   <div className="prodInfo">
@@ -51,7 +54,17 @@ export default class AltCart extends Component {
         })}
       </div>
     ) : (
-      <div>Loading alternatives!</div>
+      <div className='loading'>Loading alternatives!</div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  state: state
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchAlternatives: (cart) => dispatch(fetchAlternatives(cart))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AltCart)
