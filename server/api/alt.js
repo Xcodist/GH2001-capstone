@@ -39,6 +39,7 @@ const getLowestPrice = result => {
 
 router.get("/", async (req, res, next) => {
   try {
+    console.log('this is the cart', req.query)
     let cartAr = req.query.cart.split(",");
     let altAr = [];
     cartAr.forEach(product => {
