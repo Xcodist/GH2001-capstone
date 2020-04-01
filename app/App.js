@@ -11,6 +11,7 @@ import { me } from "./store/users";
 import { Header } from "./components/header";
 import AltCart from "./components/altCart";
 import { retrieveCart } from "./store/cart";
+import { Redirect } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends React.Component {
         }
         this.setState({
           domain: companyName
+
         });
       } else {
         if (domain.includes(".")) {
@@ -54,7 +56,7 @@ class App extends React.Component {
         <Header />
         <BottomAppBar state={this.state} />
         <Switch>
-          <Route path="/" render={props => <Home {...this.state} />} />
+          <Route exact path="/" render={props => <Home {...this.state} />} />
           <Route path="/news" render={props => <Articles {...this.state} />} />
           <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
@@ -111,3 +113,4 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 };
+
