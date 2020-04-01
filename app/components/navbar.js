@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 
 
   const BottomAppBar = props => {
-    
+
   const classes = useStyles()
   let navRoutes = () => {
     if (props.isAdmin) {
@@ -62,7 +62,6 @@ const useStyles = makeStyles(theme => ({
   return (
     <AppBar position="fixed" style={{ background: 'transparent'}} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        {/* {isLoggedIn ? ( */}
           <IconButton onClick ={props.handleClick} component={RouterLink} to="/home">
           <HomeIcon/>
           </IconButton>
