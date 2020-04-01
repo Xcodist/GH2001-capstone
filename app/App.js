@@ -56,7 +56,7 @@ class App extends React.Component {
         <Header />
         <BottomAppBar state={this.state} />
         <Switch>
-          <Route exact path="/home" render={props => <Home {...this.state} />} />
+          <Route path="/home" render={props => <Home {...this.state} />} />
           <Route path="/news" render={props => <Articles {...this.state} />} />
           <Route path="/search" render={props => <Stores {...this.props}/>}/>
           <Route path="/login" render={props => <Login {...this.props} />} />

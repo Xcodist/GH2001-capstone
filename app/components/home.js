@@ -38,7 +38,7 @@ export default class Home extends Component {
     console.log('this is state' ,this.state)
     return company[0] ? (
       <div>
-      <div>{company[0].rating}</div>
+      <div className='header'>{company[0].name}<br></br>{company[0].rating}</div>
       <AltCart />
       </div>
     ) : (
