@@ -63,7 +63,7 @@ export default class Home extends Component {
   render() {
     const company = this.state.company;
     const homeOptions = company => {
-      if (chrome.location.href.includes("cart" || "checkout" || "basket")) {
+      if (window.location.href.includes("cart" || "checkout" || "basket")) {
         console.log('site is cart')
         return <InCart />;
       } else if (company.rating) {
