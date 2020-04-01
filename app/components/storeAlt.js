@@ -1,9 +1,7 @@
-import React, {Component} from "react";
-import axios from 'axios';
-
+import React, { Component } from "react";
+import axios from "axios";
 export default class Stores extends Component {
-
-  render(){
+  render() {
     return (
       <div>
       <h1 className="shops-title">Ethically Approved Shopping</h1>
@@ -28,7 +26,7 @@ export default class Stores extends Component {
         </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 

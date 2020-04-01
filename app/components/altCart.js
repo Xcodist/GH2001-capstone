@@ -22,10 +22,12 @@ class AltCart extends Component {
     this.props.fetchAlternatives(cart)
   }
 
+
   render() {
     const alternatives = this.props.state.alt;
     return alternatives.length > 0 ? (
       <div>
+        <div className='header'>Your altCart:</div>
         {alternatives.map(alternative => {
           return (
             <div key={alternative.title}>
@@ -34,7 +36,10 @@ class AltCart extends Component {
                   <img className="thumbnail" src={alternative.thumbnail} />
                 </div>
                 <div className="rightCol">
-                  <a className="prodTitle" href={alternative.link}>
+                  <a className="prodTitle"
+                  onClick={() => {
+                    window.open(alternative.link)
+                  }}>
                     {alternative.title}
                   </a>
                   <div className="prodInfo">
@@ -49,7 +54,7 @@ class AltCart extends Component {
         })}
       </div>
     ) : (
-      <div>Loading alternatives!</div>
+      <div className='loading'>Loading alternatives!</div>
     );
   }
 }
