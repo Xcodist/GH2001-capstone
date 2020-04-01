@@ -51,28 +51,29 @@ class App extends React.Component {
 
   render() {
     const { isLoggedIn, isAdmin } = this.props;
+    console.log('this is the domain', this.state.domain)
     return (
       <div>
         <Header />
         <BottomAppBar state={this.state} />
         <Switch>
-          <Route path="/home" render={props => <Home {...this.state} />} />
+          <Route path="/" render={props => <Home props={this.state} />} />
           <Route path="/news" render={props => <Articles {...this.state} />} />
           <Route path="/search" render={props => <Stores {...this.props}/>}/>
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
           <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
-          {/* {isLoggedIn && (
+          {isLoggedIn && (
             <Switch>
-              <Route exact path="/home" component={Home} />  */}
+              <Route exact path="/" render={props => <Home {...this.state}/> } />
               {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
               </Switch> */}
             {/* )} */}
-            {/* </Switch> */}
+           </Switch>
           )}
-          </Switch>{" "}
+          </Switch>
       </div>
     );
   }
