@@ -217,3 +217,55 @@ body {
 
 
 
+/* Alt Cart Styling */
+
+.altProd {
+  display: flex
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  padding: 15px
+}
+
+.leftCol {
+  padding: 15px
+}
+
+.prodTitle {
+  font-size: 16px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 20px
+}
+
+/*HOME*/
+
+.header {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.rating {
+  border: 3px;
+  margin: 5px;
+  background-color: #ffb347;
+  padding-top: 5px;
+}
+
+.stores {
+  text-align: center;
+  font-size: 16px
+}
+
+.shops-title {
+  text-align: center;
+}
+
+.nobull {
+  text-align: center
+}
