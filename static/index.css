@@ -7,12 +7,12 @@ body {
   overflow-x: hidden;
   font-family: Roboto;
 }
-
 .form-login,
 .form-signup {
   width: 340px;
-  margin: 60px auto 30px;
-  padding: 15px;
+  /* margin: 60px auto 30px; */
+  margin: 20px auto 20px;
+  padding: 5px;
   position: relative;
   background: #fffaf6;
   border-radius: 4px;
@@ -48,14 +48,14 @@ body {
 
 .form-login .float {
   width: 50%;
-  float: left;
-  padding-top: 15px;
+  /* float: left; */
+  padding-top: 5px;
   border-top: 1px solid rgba(255, 255, 255, 1);
 }
 
 .form-signup .float {
   width: 50%;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   border-top: 1px solid rgba(255, 255, 255, 1);
 }
 
@@ -201,9 +201,69 @@ body {
   padding: 10px;
   color: white;
 }
+
 .App-title {
     font-size: 1.5em;
     text-align: center;
 }
 
+/* .Stores {
 
+} */
+.nobull {
+  list-style-type: none;
+ }
+
+
+/* Alt Cart Styling */
+
+.altProd {
+  display: flex
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  padding: 15px
+}
+
+.leftCol {
+  padding: 15px
+}
+
+.prodTitle {
+  font-size: 16px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 20px
+}
+
+/*HOME*/
+
+.header {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.rating {
+  border: 3px;
+  margin: 5px;
+  background-color: #ffb347;
+  padding-top: 5px;
+}
+
+.stores {
+  text-align: center;
+  font-size: 16px
+}
+
+.shops-title {
+  text-align: center;
+}
+
+.nobull {
+  text-align: center
+}
