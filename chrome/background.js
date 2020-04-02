@@ -1,5 +1,5 @@
 
-window.open("index.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
+// window.open("index.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
 
 // chrome.windows.onFocusChanged.addListener(function(){
 //   chrome.tabs.query({
@@ -34,16 +34,26 @@ window.open("index.html", "extension_popup", "width=300,height=400,status=no,scr
 //       });
 //     });
 
-chrome.runtime.onMessage.addListener(function(message, callback) {
-  if (message.data == “setAlarm”) {
-    chrome.alarms.create({delayInMinutes: 5})
-  } else if (message.data == “runLogic”) {
-    chrome.tabs.executeScript({file: 'logic.js'});
-  } else if (message.data == “changeColor”) {
-    chrome.tabs.executeScript(
-        {code: 'document.body.style.backgroundColor="orange"'});
-  };
-});
+//
+
+const options = {
+  type: "basic",
+  title: "popup",
+   message: 'You have more choices!',
+  iconUrl: "icons/colored-cart.png"
+};
+chrome.notifications.create(options);
+
+// function callback(){
+//  console.log('popup done!')
+// }
+
+chrome.notifications.onClicked.addListener(redirectWindow);
+
+function redirectWindow(){
+  alert("items")
+}
+
 
 
 
