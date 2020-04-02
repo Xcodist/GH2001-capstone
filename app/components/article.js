@@ -54,7 +54,7 @@ class Articles extends Component {
           >
             {headline.title}
           </h4>
-            <p>{headline.title}</p>
+          <p className="outlet">{headline.name}</p>
           </div>
         ))}
       </div>

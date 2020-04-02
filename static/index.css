@@ -268,6 +268,21 @@ body {
   text-align: center
 }
 
+.alt {
+  display: flex;
+  padding: 20px;
+  margin: 4px;
+  font-family: Roboto;
+  flex-direction: column;
+}
+
+.shops-title {
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  font-size: large;
+  font-family: Roboto;
+  text-align: center;
+}
+
 .Articles {
   display: flex;
   padding: 20px;
@@ -298,3 +313,30 @@ body {
   font-size: medium;
 }
 
+.outlet {
+  font-family: Roboto;
+  font-size: smaller;
+}
+
+.Profile {
+  display: flex;
+  padding: 20px;
+  margin: 4px;
+  font-family: Roboto;
+  flex-direction: column;
+}
+
+.welcome {
+    text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+    font-size: large;
+    font-family: Roboto;
+    text-align: center;
+}
+
+.message {
+  display: flex;
+  padding: 20px;
+  margin: 4px;
+  font-family: Roboto;
+  flex-direction: column;
+}
