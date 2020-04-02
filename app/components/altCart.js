@@ -10,7 +10,15 @@ class AltCart extends Component {
   }
 
   async componentDidMount() {
-    let cart = this.props.state.cart.map((item) => {
+    let items = []
+    let prices = []
+    for (let i = 0; i < this.props.state.cart.length; i++) {
+      let key = Object.keys(this.props.state.cart[i])
+      let value = Object.values(this.props.state.cart[i])
+      items.push(key[0])
+      prices.push(value[0])
+    }
+    let cart = items.map((item) => {
       let parsed = ''
       for (let i = 0; i < item.length; i++) {
         if (item[i] !== ',') {
@@ -19,7 +27,7 @@ class AltCart extends Component {
       }
       return parsed
     })
-    this.props.fetchAlternatives(cart)
+    this.props.fetchAlternatives(cart, prices)
   }
 
 
@@ -64,7 +72,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlternatives: (cart) => dispatch(fetchAlternatives(cart))
+  fetchAlternatives: (cart, prices) => dispatch(fetchAlternatives(cart, prices))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AltCart)
