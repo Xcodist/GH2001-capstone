@@ -51,8 +51,8 @@ const AuthForm = props => {
           <button type="submit">{displayName}</button>
           </p>
           {(name === 'signup') ?
-          (<Link to='/login'>Or Log In</Link>) :
-          (<Link to='/signup'>Or Sign Up</Link>)}
+          (<Link className='signupLink' to='/login'>Or Log In</Link>) :
+          (<Link className="signupLink" to='/signup'>Or Sign Up</Link>)}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
