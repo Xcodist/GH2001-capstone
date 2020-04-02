@@ -39,20 +39,23 @@ class Articles extends Component {
   }
 
   render() {
+    console.log(this.state.headlines)
     return (
-      <div className="App">
-        <h1 className="App-title">{this.state.domain}</h1>
-        Top Headlines:
+      <div className="Articles">
+        <h2 className="headlines">Top Headlines</h2>
         {this.state.headlines.map((headline, i) => (
+          <div className="single-article" >
           <h4
             key={i}
-            className="link"
+            className="article-link"
             onClick={() => {
               window.open(headline.url);
             }}
           >
             {headline.title}
           </h4>
+            <p>{headline.title}</p>
+          </div>
         ))}
       </div>
     );
