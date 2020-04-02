@@ -3,7 +3,7 @@ import axios from "axios";
 export default class Stores extends Component {
   render() {
     return (
-      <div>
+      <div className="alt">
         <h1 className="shops-title">Ethically Approved Shopping</h1>
         <ul className="nobull">
           <li>

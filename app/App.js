@@ -18,7 +18,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      domain: ""
+      domain: "",
+      isInCart: false
     };
   }
 
@@ -28,13 +29,19 @@ class App extends React.Component {
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
+      if(url.href.includes("cart") ||url.href.includes("checkout") || url.href.includes("basket") || url.href.includes("buy")) {
+        this.setState({...this.state, isInCart: true})
+      }
+      else {
+        this.setState({...this.state, isInCart: false})
+      }
       if (domain.slice(0, 3) === "www") {
         let companyName = domain.slice(4);
         if (companyName.includes(".")) {
           const idx = companyName.indexOf(".");
           companyName = companyName.slice(0, idx);
         }
-        this.setState({
+        this.setState({...this.state,
           domain: companyName
 
         });
