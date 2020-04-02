@@ -11,8 +11,8 @@
   "background": {
     "scripts": [
       "background.js"
-    ]
-
+    ],
+    "persistent": false
   },
   "content_scripts": [
     {
@@ -31,7 +31,6 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
-    "contextMenus",
     "notifications",
     "tabs",
     "storage",
