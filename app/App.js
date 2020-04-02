@@ -12,12 +12,14 @@ import { Header } from "./components/header";
 import AltCart from "./components/altCart";
 import { retrieveCart } from "./store/cart";
 import { Redirect } from 'react-router-dom';
+import Profile from './components/profile'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      domain: ""
+      domain: "",
+      isInCart: false
     };
   }
 
@@ -27,13 +29,19 @@ class App extends React.Component {
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
+      if(url.href.includes("cart") ||url.href.includes("checkout") || url.href.includes("basket") || url.href.includes("buy")) {
+        this.setState({...this.state, isInCart: true})
+      }
+      else {
+        this.setState({...this.state, isInCart: false})
+      }
       if (domain.slice(0, 3) === "www") {
         let companyName = domain.slice(4);
         if (companyName.includes(".")) {
           const idx = companyName.indexOf(".");
           companyName = companyName.slice(0, idx);
         }
-        this.setState({
+        this.setState({...this.state,
           domain: companyName
 
         });
@@ -60,6 +68,9 @@ class App extends React.Component {
           <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
+          <Route
+                path="/profile"
+                render={props => <Profile {...this.state}/>} />
           <Route path="/" render={props => <Home {...this.state} />} />
           <Route
             path="/altCart"
@@ -72,6 +83,9 @@ class App extends React.Component {
                 path="/"
                 render={props => <Home {...this.state} />}
               />
+              <Route
+                path="/profile"
+                render={props => <Profile {...this.state}/>} />
               {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
