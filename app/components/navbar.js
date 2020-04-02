@@ -17,6 +17,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import DescriptionIcon from '@material-ui/icons/Description';
+import Profile from './profile'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -49,10 +50,12 @@ const useStyles = makeStyles(theme => ({
   const BottomAppBar = props => {
     function handleClick(e){
       e.preventDefault();
-      if(e.target.name = 'home') history.push('/')
-      else if(e.target.name = 'news') history.push('/news')
-      else if(e.target.name = 'search') history.push('/search')
-      else if(e.target.name = 'signup') history.push('/signup')
+      if(e.target.name === 'home') history.push('/')
+      else if(e.target.name === 'news') history.push('/news')
+      else if(e.target.name === 'search') history.push('/search')
+      else if(e.target.name === 'profile') history.push('/profile')
+      else if(e.target.name === 'signup') history.push('/signup')
+
       else history.push('/')
     }
   const classes = useStyles()
@@ -65,7 +68,7 @@ const useStyles = makeStyles(theme => ({
   //     return <NotLoggedIn />
   //   }
   // }
-
+    const isLoggedIn = props.isLoggedIn
   return (
     <AppBar position="fixed" style={{ background: 'transparent'}} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
@@ -78,9 +81,15 @@ const useStyles = makeStyles(theme => ({
            <IconButton name='search' onClick ={props.handleClick} component={RouterLink} to="/search">
            <SearchIcon/>
            </IconButton>
-          <IconButton name='login' onClick ={props.handleClick} component={RouterLink} to="/login">
-           <PersonIcon/>
-           </IconButton>
+           {isLoggedIn ? (
+             <IconButton name='profile' onClick={props.handleClick} component={RouterLink} to="/profile">
+               <PersonIcon/>
+             </IconButton>
+           ): (
+            <IconButton name='login' onClick ={props.handleClick} component={RouterLink} to="/login">
+            <PersonIcon/>
+            </IconButton>
+           )}
         {/* <nav>{navRoutes()}</nav> */}
       </Toolbar>
     </AppBar>
