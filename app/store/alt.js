@@ -9,10 +9,10 @@ const getAlt = alternatives => ({
   alternatives
 });
 
-export const fetchAlternatives = products => async dispatch => {
+export const fetchAlternatives = (products, prices) => async dispatch => {
   try {
     const alternatives = await Axios.get(
-      `http://localhost:8080/api/alt?cart=${products}`
+      `http://localhost:8080/api/alt?cart=${products}&price=${prices}`
     );
     if (alternatives) {
       dispatch(getAlt(alternatives.data));
