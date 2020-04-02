@@ -15,6 +15,7 @@ class Articles extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state);
     this.getHeadlines(this.props.domain);
   }
 
