@@ -12,6 +12,7 @@ import { Header } from "./components/header";
 import AltCart from "./components/altCart";
 import { retrieveCart } from "./store/cart";
 import { Redirect } from 'react-router-dom';
+import Profile from './components/profile'
 
 class App extends React.Component {
   constructor(props) {
@@ -60,6 +61,9 @@ class App extends React.Component {
           <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
+          <Route
+                path="/profile"
+                render={props => <Profile {...this.state}/>} />
           <Route path="/" render={props => <Home {...this.state} />} />
           <Route
             path="/altCart"
@@ -72,6 +76,9 @@ class App extends React.Component {
                 path="/"
                 render={props => <Home {...this.state} />}
               />
+              <Route
+                path="/profile"
+                render={props => <Profile {...this.state}/>} />
               {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
