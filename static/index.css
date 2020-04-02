@@ -267,5 +267,8 @@ body {
 }
 
 .nobull {
-  text-align: center
+  text-align: center;
+}
+.signupLink {
+  text-align: center;
 }

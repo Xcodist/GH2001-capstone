@@ -8,45 +8,45 @@ import Home from "./components/home";
 import Articles from "./components/article";
 import Stores from "./components/storeAlt";
 import { me } from "./store/users";
-import {Header} from "./components/header";
-import AltCart from './components/altCart'
-import { retrieveCart } from './store/cart'
-
+import { Header } from "./components/header";
+import AltCart from "./components/altCart";
+import { retrieveCart } from "./store/cart";
+import { Redirect } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      domain: "",
+      domain: ""
     };
   }
 
   componentDidMount() {
     this.props.loadInitialData();
-    this.props.retrieveCart()
+    this.props.retrieveCart();
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
-      if(domain.slice(0, 3) === "www") {
-        let companyName = domain.slice(4)
+      if (domain.slice(0, 3) === "www") {
+        let companyName = domain.slice(4);
         if (companyName.includes(".")) {
-          const idx = companyName.indexOf(".")
-          companyName = companyName.slice(0, idx)
+          const idx = companyName.indexOf(".");
+          companyName = companyName.slice(0, idx);
         }
         this.setState({
-          domain: companyName,
-        })
+          domain: companyName
+
+        });
       } else {
         if (domain.includes(".")) {
-          const idx = domain.indexOf(".")
-          let companyName = domain.slice(0, idx)
+          const idx = domain.indexOf(".");
+          let companyName = domain.slice(0, idx);
           this.setState({
-            domain: companyName,
+            domain: companyName
           });
         }
       }
     });
-
   }
 
   render() {
@@ -56,23 +56,30 @@ class App extends React.Component {
         <Header />
         <BottomAppBar state={this.state} />
         <Switch>
-          <Route path="/home" render={props => <Home {...this.state} />} />
+          <Route exact path="/" render={props => <Home {...this.state} />} />
           <Route path="/news" render={props => <Articles {...this.state} />} />
-          <Route path="/search" render={props => <Stores {...this.props}/>}/>
+          <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
-          <Route path ="/altCart" render={props => <AltCart {...this.state} />} />
-          {/* {isLoggedIn && (
+          <Route
+            path="/altCart"
+            render={props => <AltCart {...this.state} />}
+          />
+          {isLoggedIn && (
             <Switch>
-              <Route exact path="/home" component={Home} />  */}
+              <Route
+                exact
+                path="/"
+                render={props => <Home {...this.state} />}
+              />
               {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
               </Switch> */}
-            {/* )} */}
-            {/* </Switch> */}
+              {/* )} */}
+            </Switch>
           )}
-          </Switch>{" "}
+        </Switch>
       </div>
     );
   }
@@ -106,3 +113,4 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 };
+
