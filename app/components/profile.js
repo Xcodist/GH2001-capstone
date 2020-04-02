@@ -30,7 +30,7 @@ class Profile extends Component {
     const {user} = this.props
     return (
       <div className="Profile">
-        <h1>Welcome {user.firstName}</h1>
+        <h1 className="welcome">Welcome {user.firstName}</h1>
         <button onClick={this.handleSubmit}>Logout</button>
       </div>
     )
