@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { auth } from '../store/users'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 
 const AuthForm = props => {
@@ -49,6 +50,9 @@ const AuthForm = props => {
         <p className="clearfix">
           <button type="submit">{displayName}</button>
           </p>
+          {(name === 'signup') ?
+          (<Link className='signupLink' to='/login'>Or Log In</Link>) :
+          (<Link className="signupLink" to='/signup'>Or Sign Up</Link>)}
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
