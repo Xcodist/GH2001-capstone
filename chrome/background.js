@@ -48,7 +48,8 @@ chrome.notifications.create(options);
 //  console.log('popup done!')
 // }
 
-chrome.notifications.onClicked.addListener(redirectWindow);
+// chrome.notifications.onClicked.addListener(redirectWindow);
+chrome.windows.onFocusChanged.addListener(redirectWindow);
 
 function redirectWindow(){
   alert("items")

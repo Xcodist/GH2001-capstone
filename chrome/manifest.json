@@ -25,7 +25,8 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
-    "contextMenus", "tabs", "storage",
+    "notifications",
+    "tabs", "storage",
     "https://*/*cart*",
     "http://*/*cart*"
   ]
