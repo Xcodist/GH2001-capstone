@@ -207,12 +207,14 @@ body {
     text-align: center;
 }
 
-/* .Stores {
+.stores, .shops-title{
+  text-align: center
 
-} */
+}
 .nobull {
   list-style-type: none;
  }
+
 
 
 /* Alt Cart Styling */
@@ -265,7 +267,10 @@ body {
 }
 
 .nobull {
-  text-align: center
+  text-align: center;
+}
+.signupLink {
+  text-align: center;
 }
 
 .alt {
