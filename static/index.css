@@ -267,3 +267,34 @@ body {
 .nobull {
   text-align: center
 }
+
+.Articles {
+  display: flex;
+  padding: 20px;
+  margin: 4px;
+  font-family: Roboto;
+  flex-direction: column;
+}
+
+.Articles-CompanyName {
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  font-size: large;
+  font-family: Roboto;
+  text-align: center;
+}
+
+.single-article {
+  justify-content: left;
+}
+
+
+.headlines {
+  text-align: center;
+}
+
+.article-link {
+  font-family: Roboto;
+  color: blue;
+  font-size: medium;
+}
+
