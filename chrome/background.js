@@ -49,13 +49,28 @@ chrome.notifications.create(options);
 // }
 
 // chrome.notifications.onClicked.addListener(redirectWindow);
+// chrome.windows.onFocusChanged.addListener(redirectWindow);
+
+// function redirectWindow(){
+//   alert("items")
+// }
+
 chrome.windows.onFocusChanged.addListener(redirectWindow);
 
 function redirectWindow(){
-  alert("items")
+   chrome.tabs.query({
+        active: true,
+        currentWindow: true
+      }, function(tabs) {
+        console.log('this is tabs', tabs)
+        var tab = tabs[0];
+        var url = tab.url;
+        console.log('this is the url', url)
+        if(url.includes('cart')) {
+        alert("Your alternate cart is now ready for checkout!");
+         }
+   });
 }
-
-
 
 
 
