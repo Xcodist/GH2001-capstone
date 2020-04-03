@@ -12,7 +12,6 @@ if(window.location.href.includes('amazon')) {
       console.log('Value is set to ' + cartList);
     });
   }
-  
   if (window.location.href.includes('buy')) {
     let items = document.getElementsByClassName('a-row breakword')
     let prices = document.querySelectorAll('.a-color-price .a-text-bold')
@@ -27,7 +26,6 @@ if(window.location.href.includes('amazon')) {
     });
   }
 }
-
 if(window.location.href.includes('walmart')) {
   if (window.location.href.includes('cart')) {
     let items = document.getElementsByClassName("cart-item-name js-product-title")
@@ -43,4 +41,3 @@ if(window.location.href.includes('walmart')) {
     });
   }
 }
-

@@ -8,6 +8,10 @@
     "48": "icons/colored-cart.png",
     "128": "icons/colored-cart.png"
   },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -21,7 +25,8 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
-    "contextMenus", "tabs", "storage",
+    "notifications",
+    "tabs", "storage",
     "https://*/*cart*",
     "http://*/*cart*"
   ]
