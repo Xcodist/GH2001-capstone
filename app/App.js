@@ -63,7 +63,7 @@ class App extends React.Component {
       <div>
         <Header />
         <BottomAppBar state={this.state} />
-        <Switch>
+        <Switch >
           <Route path="/news" render={props => <Articles {...this.state} />} />
           <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
@@ -71,7 +71,8 @@ class App extends React.Component {
           <Route
                 path="/profile"
                 render={props => <Profile {...this.state}/>} />
-          <Route path="/" render={props => <Home {...this.state} />} />
+          <Route
+            path="/" render={props => <Home {...this.state} />} />
           <Route
             path="/altCart"
             render={props => <AltCart {...this.state} />}
