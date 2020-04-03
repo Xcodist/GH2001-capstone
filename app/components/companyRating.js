@@ -1,52 +1,62 @@
-import React from 'react'
-import frown from "../../chrome/icons/download.png";
-import smile from "../../chrome/icons/smily.png";
+import React from "react";
+import frown from "../../chrome/icons/frown.png";
+import smile from "../../chrome/icons/wink.png";
 import neutral from "../../chrome/icons/neutral.png";
 
 const HasRating = props => {
-  let emoji = ''
+  let emoji = "";
+  let style = "";
 
   const company = props.company;
-  let name = company.name
-  let newName = ''
+  let name = company.name;
+  let newName = "";
   for (let i = 0; i < name.length; i++) {
-    if (i > 0 && name[i-1] === " ") {
-      newName += name[i].toUpperCase()
+    if (i > 0 && name[i - 1] === " ") {
+      newName += name[i].toUpperCase();
     } else if (i === 0) {
-      newName += name[i].toUpperCase()
+      newName += name[i].toUpperCase();
     } else {
-      newName += name[i]
+      newName += name[i];
     }
   }
-  company.name = newName
+  company.name = newName;
 
   if (company.rating > 60) {
-    emoji = smile
+    emoji = smile;
+    style = '#0C7C59'
   } else if (company.rating > 50) {
-    emoji = neutral
+    emoji = neutral;
+    style = '#D67F33'
   } else {
-    emoji = frown
+    emoji = frown;
+    style = '#2B303A'
   }
 
   return (
     <div>
       <div className="header">
-        {company.name}<br></br><br></br>
-        <img className='ratingemoji' src={emoji}/><br></br><br></br>
-        <span>{company.rating}</span>
+        {company.name}
         <br></br>
-      </div>
+        <br></br>
+        <div className="ratingbody" style={{background: style}}>
+          <img className="ratingemoji" src={emoji} />
 
-      <p className="ratingexpl">
-        This is CRS Hub's rating of <span>{company.name}</span>. CSR Hub offers transparent
-        ratings and rankings of 19,184 companies from 143 countries, driven by
-        662 industry-leading CSR/ESG data sources, including ESG analyst, crowd,
-        government, publication, and and not-for-profit data. For more
-        information, visit
-        <a href="https://www.csrhub.com/"> CSRHUB.com</a>
-      </p>
+          <div className="ratingnum">
+            Company<br></br>Rating: <span>{company.rating}</span>
+          </div>
+        </div>
+        <br></br>
+        <p className="ratingexpl">
+          This is CRS Hub's rating of <span>{company.name}</span>. CSR Hub
+          offers transparent ratings and rankings of 19,184 companies from 143
+          countries, driven by 662 industry-leading CSR/ESG data sources,
+          including ESG analyst, crowd, government, publication, and and
+          not-for-profit data. For more information, visit
+          <a href="https://www.csrhub.com/"> CSRHUB.com</a>
+        </p>
+      </div>
     </div>
   );
 };
 
-export default HasRating
+export default HasRating;
