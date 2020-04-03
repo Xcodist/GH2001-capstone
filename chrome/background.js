@@ -1,4 +1,3 @@
-
 // window.open("index.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
 
 // chrome.windows.onFocusChanged.addListener(function(){
@@ -39,7 +38,7 @@
 const options = {
   type: "basic",
   title: "popup",
-   message: 'You have more choices!',
+  message: "You have more choices!",
   iconUrl: "icons/colored-cart.png"
 };
 chrome.notifications.create(options);
@@ -57,21 +56,18 @@ chrome.notifications.create(options);
 
 chrome.windows.onFocusChanged.addListener(redirectWindow);
 
-function redirectWindow(){
-   chrome.tabs.query({
-        active: true,
-        currentWindow: true
-      }, function(tabs) {
-        console.log('this is tabs', tabs)
-        var tab = tabs[0];
-        var url = tab.url;
-        console.log('this is the url', url)
-        if(url.includes('cart')) {
+function redirectWindow() {
+  chrome.tabs.query(
+    {
+      active: true,
+      currentWindow: true
+    },
+    function(tabs) {
+      var tab = tabs[0];
+      var url = tab.url;
+      if (url.includes("cart")) {
         alert("Your alternate cart is now ready for checkout!");
-         }
-   });
+      }
+    }
+  );
 }
-
-
-
-
