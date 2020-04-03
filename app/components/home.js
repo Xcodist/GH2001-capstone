@@ -46,6 +46,6 @@ export default class Home extends Component {
         return <Message />;
       }
     };
-    return company[0] ? <div>{homeOptions(company[0])}</div> : <Message />;
+    return company[0] ? <div className='mainBody'>{homeOptions(company[0])}</div> : <Message />;
   }
 }
