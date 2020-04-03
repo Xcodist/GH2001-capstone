@@ -13,7 +13,6 @@ export const retrieveCart = () => async dispatch => {
     await chrome.storage.local.get(["items"], function(result) {
       result.items.forEach(item => cartItems.push(item));
     });
-    console.log('this is cart items', cartItems)
     dispatch(getCart(cartItems));
   } catch (err) {
     console.log(err);
