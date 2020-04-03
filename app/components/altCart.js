@@ -41,7 +41,7 @@ class AltCart extends Component {
     const alternatives = this.props.state.alt;
     const user = this.props.state.user;
     return alternatives.length > 0 ? (
-      <div>
+      <div className='mainBody'>
         <div className='header'>Your altCart:</div>
         {alternatives.map(alternative => {
           return (

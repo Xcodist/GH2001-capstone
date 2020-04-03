@@ -7,6 +7,11 @@ body {
   overflow-x: hidden;
   font-family: Roboto;
 }
+
+.mainBody {
+  margin-bottom: 70px;
+}
+
 .form-login,
 .form-signup {
   width: 340px;
@@ -306,20 +311,49 @@ h2 span {
   font-weight: bold
 }
 
-.header span {
+.ratingbody {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: #0C7C59;
-  font-size: 20px;
-  border-radius: 10px;
+
+}
+
+.ratingnum {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
   color: white;
+  border-radius: 5px;
   padding: 10px;
-  margin: 50px
+  text-align: right;
+}
+
+.ratingnum span {
+  font-size: 40px;
+  padding-left: 10px;
+}
+
+.ratingemoji {
+  max-height: 150px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+
+  /* align-self: flex-end; */
 }
 
 /*GENERAL HEADER*/
 .header {
   text-align: center;
-  font-size: 20px;
-  padding: 20px;
+  font-size: 30px;
+  padding-top: 20px;
+  font-weight: bold;
+  -webkit-transition: word-spacing 200ms cubic-bezier(0.895, 0.03, 0.685, 0.22) 10ms;
+}
+
+.header p {
+  font-size: 12px;
+  font-weight: normal
 }
 
 .rating {
@@ -327,10 +361,6 @@ h2 span {
   margin: 5px;
   background-color: #ffb347;
   padding-top: 5px;
-}
-
-.ratingemoji {
-  max-height: 150px;
 }
 
 .stores {
@@ -370,6 +400,7 @@ h2 span {
   margin: 4px;
   font-family: Roboto;
   flex-direction: column;
+  margin-bottom: 70px;
 }
 
 .Articles-CompanyName {
