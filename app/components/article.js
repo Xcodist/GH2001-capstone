@@ -39,7 +39,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log(this.state.headlines)
     return (
       <div className="Articles">
         <h2 className="headlines">Top Headlines</h2>
