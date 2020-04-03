@@ -23,7 +23,7 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
+   componentDidMount() {
     this.props.loadInitialData();
     this.props.retrieveCart();
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
@@ -112,7 +112,7 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData: () => dispatch(me()),
     retrieveCart: () => dispatch(retrieveCart())
-  };
+    };
 };
 
 // The `withRouter` wrapper makes sure that updates are not blocked
