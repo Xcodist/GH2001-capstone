@@ -7,11 +7,11 @@ module.exports = router
 router.get('/:company', async (req, res, next) => {
     const { company } = await req.params;
     newsapi.v2.everything({
-      q: `${company}`,
+      q: `${company} company`,
       sources: 'bbc-news,the-verge',
       domains: 'bbc.co.uk, techcrunch.com',
       from: '2020-3-23',
-      to: '2020-1-19',
+      to: '2019-1-19',
       language: 'en',
       sortBy: 'relevancy',
       page: 2
