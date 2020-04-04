@@ -270,8 +270,9 @@ h2 span {
   padding: 10px;
 }
 
-.welcome {
-  position: absolute;
+.welcomeP {
+  /* position: absolute; */
+  font-size: medium;
   top: 100px;
   left: 50;
   width: 100%;
@@ -442,4 +443,10 @@ h2 span {
   font-size: large;
   font-family: Roboto;
   text-align: center;
+}
+
+
+.logout {
+  margin-top: 10px;
+  margin-bottom: 60px;
 }
