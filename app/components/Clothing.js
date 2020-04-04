@@ -70,6 +70,22 @@ export default class Clothing extends Component {
               height="100"
             />
           </li>
+          <li className="storeLink">
+            <a
+              className="stores"
+              onClick={() => {
+                window.open("https://www.gap.com/");
+              }}
+            >
+              GAP
+            </a>
+            <br />
+            <img
+              src="https://digital.hbs.edu/platform-digit/wp-content/uploads/sites/2/2018/04/Gap1-350x200.jpg"
+              width="200"
+              height="100"
+            />
+          </li>
         </ul>
       </div>
     );

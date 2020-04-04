@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class Beauty extends Component {
   render() {
     return (
+        <div className="mainBody">
         <ul className="nobull">
         <li className="storeLink">
           <a
@@ -22,6 +23,7 @@ export default class Beauty extends Component {
           />
         </li>
       </ul>
+      </div>
   );
 }
 }
