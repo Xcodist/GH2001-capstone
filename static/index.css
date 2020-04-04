@@ -271,8 +271,9 @@ h2 span {
   padding: 10px;
 }
 
-.welcome {
-  position: absolute;
+.welcomeP {
+  /* position: absolute; */
+  font-size: medium;
   top: 100px;
   left: 50;
   width: 100%;
@@ -445,6 +446,7 @@ h2 span {
   text-align: center;
 }
 
+<<<<<<< HEAD
 .categoryList {
   display: flex;
   flex-wrap: wrap;
@@ -470,4 +472,10 @@ h2 span {
 
 .storeLink {
   margin: 40px
+=======
+
+.logout {
+  margin-top: 10px;
+  margin-bottom: 60px;
+>>>>>>> master
 }

@@ -11,12 +11,17 @@ import { me } from "./store/users";
 import { Header } from "./components/header";
 import AltCart from "./components/altCart";
 import { retrieveCart } from "./store/cart";
+<<<<<<< HEAD
 import { Redirect } from 'react-router-dom';
 import Profile from './components/profile'
 import Beauty from './components/Beauty'
 import Electronics from './components/Electronics'
 import Clothing from './components/Clothing'
 import ForHome from './components/ForHome'
+=======
+import { Redirect } from "react-router-dom";
+import Profile from "./components/profile";
+>>>>>>> master
 
 class App extends React.Component {
   constructor(props) {
@@ -33,11 +38,15 @@ class App extends React.Component {
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
-      if(url.href.includes("cart") ||url.href.includes("checkout") || url.href.includes("basket") || url.href.includes("buy")) {
-        this.setState({...this.state, isInCart: true})
-      }
-      else {
-        this.setState({...this.state, isInCart: false})
+      if (
+        url.href.includes("cart") ||
+        url.href.includes("checkout") ||
+        url.href.includes("basket") ||
+        url.href.includes("buy")
+      ) {
+        this.setState({ ...this.state, isInCart: true });
+      } else {
+        this.setState({ ...this.state, isInCart: false });
       }
       if (domain.slice(0, 3) === "www") {
         let companyName = domain.slice(4);
@@ -45,10 +54,7 @@ class App extends React.Component {
           const idx = companyName.indexOf(".");
           companyName = companyName.slice(0, idx);
         }
-        this.setState({...this.state,
-          domain: companyName
-
-        });
+        this.setState({ ...this.state, domain: companyName });
       } else {
         if (domain.includes(".")) {
           const idx = domain.indexOf(".");
@@ -67,14 +73,16 @@ class App extends React.Component {
       <div>
         <Header />
         <BottomAppBar state={this.state} />
-        <Switch >
+        <Switch>
           <Route path="/news" render={props => <Articles {...this.state} />} />
           <Route path="/search" render={props => <Stores {...this.props} />} />
           <Route path="/login" render={props => <Login {...this.props} />} />
           <Route path="/signup" render={props => <Signup {...this.props} />} />
           <Route
-                path="/profile"
-                render={props => <Profile {...this.state}/>} />
+            path="/profile"
+            render={props => <Profile {...this.state} />}
+          />
+          <Route path="/" render={props => <Home {...this.state} />} />
           <Route
             path="/altCart"
             render={props => <AltCart {...this.state} />}
@@ -95,7 +103,8 @@ class App extends React.Component {
               />
               <Route
                 path="/profile"
-                render={props => <Profile {...this.state}/>} />
+                render={props => <Profile {...this.state} />}
+              />
               {/* {isAdmin && (
               <Switch>
                 <Route path="/home" component={AdminHome} />
@@ -137,4 +146,3 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 };
-
