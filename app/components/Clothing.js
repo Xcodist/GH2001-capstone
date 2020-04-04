@@ -5,7 +5,7 @@ export default class Clothing extends Component {
     return (
       <div className="mainBody">
         <ul className="nobull">
-          <li>
+          <li className="storeLink">
             <a
               className="stores"
               onClick={() => {
@@ -14,6 +14,7 @@ export default class Clothing extends Component {
             >
               Columbia
             </a>
+            <br />
             <img
               className="columbia"
               src="https://columbia.scene7.com/is/image/ColumbiaSportswear2/03-02_24694_COL_US_Mens_Dry_NewArrivals_SuperCat_HikingSubhero_V4_M?fmt=pjpeg&scl=1"
@@ -21,7 +22,7 @@ export default class Clothing extends Component {
               height="100"
             />
           </li>
-          <li>
+          <li className="storeLink">
             <a
               className="stores"
               onClick={() => {
@@ -30,13 +31,14 @@ export default class Clothing extends Component {
             >
               Patagonia
             </a>
+            <br />
             <img
               src="https://onda.org/wp-content/uploads/2017/11/Patagonia-logo.png"
               width="200"
               height="100"
             />
           </li>
-          <li>
+          <li className="storeLink">
             <a
               className="stores"
               onClick={() => {
@@ -45,13 +47,14 @@ export default class Clothing extends Component {
             >
               Reformation
             </a>
+            <br />
             <img
               src="https://d1bntizjlw65va.cloudfront.net/87784eefec72d66cbad069899ffde3492576b5f3.jpg"
               width="200"
               height="100"
             />
           </li>
-          <li>
+          <li className="storeLink">
             <a
               className="stores"
               onClick={() => {
@@ -60,6 +63,7 @@ export default class Clothing extends Component {
             >
               Christy Dawn
             </a>
+            <br />
             <img
               src="https://d2bo3wgtyrxq4p.cloudfront.net/client_info/FREAKSSTORE/itemimage/christydawnjpg.jpg"
               width="200"
