@@ -77,7 +77,6 @@ class App extends React.Component {
             path="/profile"
             render={props => <Profile {...this.state} />}
           />
-          <Route path="/" render={props => <Home {...this.state} />} />
           <Route
             path="/altCart"
             render={props => <AltCart {...this.state} />}
@@ -88,7 +87,6 @@ class App extends React.Component {
           <Route path="/forHome" component={ForHome} />
           <Route
             path="/" render={props => <Home {...this.state} />} />
-          
           {isLoggedIn && (
             <Switch>
               <Route
