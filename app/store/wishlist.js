@@ -25,7 +25,7 @@ const removeFromWishlist = wishlistId => ({
 export const getWishlistThunk = (userId) => async dispatch => {
   try {
     const wishlist = await Axios.get(`http://localhost:8080/api/wishlist/${userId}`)
-    console.log(wishlist.data[0].wishlists)
+    console.log('this is wishlist', wishlist.data[0].wishlists)
     dispatch(getWishlist(wishlist.data[0].wishlists));
   } catch(e) {
     console.log(e);
