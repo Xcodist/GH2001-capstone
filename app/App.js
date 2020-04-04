@@ -11,17 +11,12 @@ import { me } from "./store/users";
 import { Header } from "./components/header";
 import AltCart from "./components/altCart";
 import { retrieveCart } from "./store/cart";
-<<<<<<< HEAD
 import { Redirect } from 'react-router-dom';
 import Profile from './components/profile'
 import Beauty from './components/Beauty'
 import Electronics from './components/Electronics'
 import Clothing from './components/Clothing'
 import ForHome from './components/ForHome'
-=======
-import { Redirect } from "react-router-dom";
-import Profile from "./components/profile";
->>>>>>> master
 
 class App extends React.Component {
   constructor(props) {
