@@ -443,3 +443,26 @@ h2 span {
   font-family: Roboto;
   text-align: center;
 }
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  width: 100px;
+  height: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 10px;
+  border: 1px solid #f7ffe0;
+  background-color: #ffeee2;
+  text-align: center;
+  text-decoration: none;
+  color: #2b303a;
+  border-radius: 25px;
+}
