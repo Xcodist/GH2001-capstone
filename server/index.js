@@ -74,6 +74,7 @@ const createApp = () => {
   app.use('/api', require('./api'))
   app.use('/newsapi', require('./newsapi'))
 
+
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'build')))
 
