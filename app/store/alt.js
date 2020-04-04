@@ -2,12 +2,14 @@ import Axios from "axios";
 
 const GET_ALT = "GET_ALT";
 
+
 const alt = [];
 
 const getAlt = alternatives => ({
   type: GET_ALT,
   alternatives
 });
+
 
 export const fetchAlternatives = (products, prices) => async dispatch => {
   try {
