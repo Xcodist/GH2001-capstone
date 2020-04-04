@@ -212,7 +212,8 @@ body {
 }
 
 .stores, .shops-title{
-  text-align: center
+  text-align: center;
+  font-weight: bold;
 
 }
 .nobull {
@@ -465,4 +466,8 @@ h2 span {
   text-decoration: none;
   color: #2b303a;
   border-radius: 25px;
+}
+
+.storeLink {
+  margin: 40px
 }
