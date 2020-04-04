@@ -446,7 +446,6 @@ h2 span {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .categoryList {
   display: flex;
   flex-wrap: wrap;
@@ -472,10 +471,9 @@ h2 span {
 
 .storeLink {
   margin: 40px
-=======
+}
 
 .logout {
   margin-top: 10px;
   margin-bottom: 60px;
->>>>>>> master
 }
