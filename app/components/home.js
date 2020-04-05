@@ -23,11 +23,16 @@ export default class Home extends Component {
     }
   }
   getCompany(name) {
+    // if (localStorage)
     Axios.get(`http://localhost:8080/api/companies?name=${name}`)
       .then(company => {
         this.setState({
           company: company.data
         });
+        localStorage.setItem({'company': company.data}, function() {
+          console.log('company is set to ' + company.data)
+          console.log(chrome.storage)
+        })
       })
       .catch(err => {
         console.log(err);
