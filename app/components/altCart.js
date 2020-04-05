@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {fetchAlternatives} from '../store/alt'
+import {addToWishlistThunk} from '../store/wishlist'
 import { connect } from "react-redux";
 class AltCart extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class AltCart extends Component {
     this.state = {
       cartFetched: false
     }
+
   }
 
   async componentDidMount() {
@@ -30,9 +32,14 @@ class AltCart extends Component {
     this.props.fetchAlternatives(cart, prices)
   }
 
+  handleSubmit(event, alternative, user) {
+    event.preventDefault()
+    this.props.addToWishlistThunk(alternative, user)
+  }
 
   render() {
     const alternatives = this.props.state.alt;
+    const user = this.props.state.user;
     return alternatives.length > 0 ? (
       <div className='mainBody'>
         <div className='header'>Your altCart:</div>
@@ -55,6 +62,9 @@ class AltCart extends Component {
                     {alternative.price}<br/>
                     {alternative.snippet}<br/>
                   </div>
+                  <button onClick={() => {
+                    this.handleSubmit(event, alternative, user)
+                  }}>Add to wishlist!</button>
                 </div>
               </div>
             </div>
@@ -72,7 +82,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlternatives: (cart, prices) => dispatch(fetchAlternatives(cart, prices))
+  fetchAlternatives: (cart, prices) => dispatch(fetchAlternatives(cart, prices)),
+  addToWishlistThunk: (alternative, user) => dispatch(addToWishlistThunk(alternative, user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AltCart)

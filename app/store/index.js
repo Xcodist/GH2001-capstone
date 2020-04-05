@@ -6,11 +6,13 @@ import user, { logout } from "./users";
 import articlesReducer from "./articles";
 import cart from "./cart";
 import alt from './alt';
+import wishlist from "./wishlist"
 
 const reducer = combineReducers({
   user,
   cart: cart,
-  alt: alt
+  alt: alt,
+  wishlist: wishlist,
 });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
