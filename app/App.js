@@ -3,20 +3,22 @@ import BottomAppBar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+//Components
 import { Login, Signup } from "./components/auth-form";
+import HasRating from './components/companyRating'
 import Home from "./components/home";
 import Articles from "./components/article";
 import Stores from "./components/storeAlt";
-import { me } from "./store/users";
 import { Header } from "./components/header";
 import AltCart from "./components/altCart";
+import Profile from "./components/profile";
+import Beauty from "./components/Beauty";
+import Electronics from "./components/Electronics";
+import Clothing from "./components/Clothing";
+import ForHome from "./components/ForHome";
+//Thunks
+import { me } from "./store/users";
 import { retrieveCart } from "./store/cart";
-import { Redirect } from 'react-router-dom';
-import Profile from './components/profile'
-import Beauty from './components/Beauty'
-import Electronics from './components/Electronics'
-import Clothing from './components/Clothing'
-import ForHome from './components/ForHome'
 
 class App extends React.Component {
   constructor(props) {
@@ -62,6 +64,22 @@ class App extends React.Component {
     });
   }
 
+  // componentDidUpdate() {
+  //   chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+  //     const url = new URL(tabs[0].url);
+  //     if (
+  //       url.href.includes("cart") ||
+  //       url.href.includes("checkout") ||
+  //       url.href.includes("basket") ||
+  //       url.href.includes("buy")
+  //     ) {
+  //       this.setState({ ...this.state, isInCart: true });
+  //     } else {
+  //       this.setState({ ...this.state, isInCart: false });
+  //     }
+  //   });
+  // }
+
   render() {
     const { isLoggedIn } = this.props;
     return (
@@ -81,12 +99,12 @@ class App extends React.Component {
             path="/altCart"
             render={props => <AltCart {...this.state} />}
           />
+          <Route path='/rating' render={props => <HasRating {...this.state} />} />
           <Route path="/clothing" component={Clothing} />
           <Route path="/beauty" component={Beauty} />
           <Route path="/electronics" component={Electronics} />
           <Route path="/forHome" component={ForHome} />
-          <Route
-            path="/" render={props => <Home {...this.state} />} />
+          <Route path="/" render={props => <Home {...this.state} />} />
           {isLoggedIn && (
             <Switch>
               <Route

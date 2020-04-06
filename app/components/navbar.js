@@ -17,6 +17,10 @@ import IconButton from "@material-ui/core/IconButton";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DescriptionIcon from "@material-ui/icons/Description";
 import Profile from "./profile";
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShopIcon from '@material-ui/icons/Shop';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -29,21 +33,6 @@ const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
   }
-  // SearchIcon:{
-  //   flex: auto,
-  // },
-  // PersonIcon:{
-  //   flex: auto,
-  // },
-  // HomeIcon: {
-  //   flex: auto,
-  // },
-  // DescriptionIcon:{
-  //   flex: auto,
-  // }
-  // toolbarButtons: {
-  //   flex: auto,
-  // }
 }));
 
 const BottomAppBar = props => {
@@ -54,6 +43,8 @@ const BottomAppBar = props => {
     else if (e.target.name === "search") history.push("/search");
     else if (e.target.name === "profile") history.push("/profile");
     else if (e.target.name === "signup") history.push("/signup");
+    else if (e.target.name === "altCart") history.push("/altCart");
+    else if (e.target.name === "rating") history.push("/rating");
     else history.push("/");
   }
   const classes = useStyles();
@@ -75,6 +66,22 @@ const BottomAppBar = props => {
           <HomeIcon />
         </IconButton>
         <IconButton
+          name="altCart"
+          onClick={props.handleClick}
+          component={RouterLink}
+          to="/altCart"
+        >
+          <ShoppingCartIcon />
+        </IconButton>
+        <IconButton
+          name="rating"
+          onClick={props.handleClick}
+          component={RouterLink}
+          to="/rating"
+        >
+          <InsertEmoticonIcon />
+        </IconButton>
+        <IconButton
           name="news"
           onClick={props.handleClick}
           component={RouterLink}
@@ -88,7 +95,7 @@ const BottomAppBar = props => {
           component={RouterLink}
           to="/search"
         >
-          <SearchIcon />
+          <CheckCircleIcon />
         </IconButton>
         {isLoggedIn ? (
           <IconButton
