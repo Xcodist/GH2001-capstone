@@ -63,8 +63,6 @@ class Profile extends Component {
                             user.id,
                             alternative.id
                           );
-                          // this.props.getWishlistThunk(user.id)
-                          // this.componentDidMount()
                         }}
                       >
                         Remove from wishlist!
