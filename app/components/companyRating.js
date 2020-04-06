@@ -2,43 +2,48 @@ import React from "react";
 import frown from "../../chrome/icons/frown.png";
 import smile from "../../chrome/icons/wink.png";
 import neutral from "../../chrome/icons/neutral.png";
+import { connect } from "react-redux";
 
 const HasRating = props => {
+  // console.log(this.props)
+  console.log(props);
   let emoji = "";
   let style = "";
 
-  const company = props.company;
-  let name = company.name;
-  let newName = "";
-  for (let i = 0; i < name.length; i++) {
-    if (i > 0 && name[i - 1] === " ") {
-      newName += name[i].toUpperCase();
-    } else if (i === 0) {
-      newName += name[i].toUpperCase();
+  const company = props.state.company;
+  if (company.name) {
+    let name = company.name;
+    let newName = "";
+    for (let i = 0; i < name.length; i++) {
+      if (i > 0 && name[i - 1] === " ") {
+        newName += name[i].toUpperCase();
+      } else if (i === 0) {
+        newName += name[i].toUpperCase();
+      } else {
+        newName += name[i];
+      }
+    }
+    company.name = newName;
+
+    if (company.rating > 60) {
+      emoji = smile;
+      style = "#0C7C59";
+    } else if (company.rating > 50) {
+      emoji = neutral;
+      style = "#D67F33";
     } else {
-      newName += name[i];
+      emoji = frown;
+      style = "#2B303A";
     }
   }
-  company.name = newName;
 
-  if (company.rating > 60) {
-    emoji = smile;
-    style = '#0C7C59'
-  } else if (company.rating > 50) {
-    emoji = neutral;
-    style = '#D67F33'
-  } else {
-    emoji = frown;
-    style = '#2B303A'
-  }
-
-  return (
+  return company.name ? (
     <div>
       <div className="header">
         {company.name}
         <br></br>
         <br></br>
-        <div className="ratingbody" style={{background: style}}>
+        <div className="ratingbody" style={{ background: style }}>
           <img className="ratingemoji" src={emoji} />
 
           <div className="ratingnum">
@@ -56,7 +61,13 @@ const HasRating = props => {
         </p>
       </div>
     </div>
-  );
+  ) : (
+    <div>Loading</div>
+  )
 };
 
-export default HasRating;
+const mapStateToProps = state => ({
+  state: state
+});
+
+export default connect(mapStateToProps)(HasRating);
