@@ -29,7 +29,6 @@ export const getWishlistThunk = (userId) => async dispatch => {
     dispatch(getWishlist(wishlist.data[0].wishlists));
   } catch(e) {
     console.log(e);
-    next(e)
   }
 }
 
@@ -43,7 +42,6 @@ export const addToWishlistThunk = (altItem, user) => async dispatch => {
     }
   } catch(e) {
     console.log(e)
-    next(e)
   }
 }
 
@@ -53,7 +51,6 @@ export const removeFromWishlistThunk = ( userId, wishlistId) => async dispatch =
     dispatch(removeFromWishlist(wishlistId));
   }  catch (e) {
     console.log(e)
-    next(e)
   }
 }
 
