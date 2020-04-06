@@ -5,8 +5,6 @@ import neutral from "../../chrome/icons/neutral.png";
 import { connect } from "react-redux";
 
 const HasRating = props => {
-  // console.log(this.props)
-  console.log(props);
   let emoji = "";
   let style = "";
 
