@@ -15,10 +15,6 @@ import { connect } from "react-redux";
 class Home extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   company: ""
-    // };
-    // this.getCompany = this.getCompany.bind(this);
   }
   componentDidUpdate(prevState, prevProps) {
     if (this.props.domain.length !== prevState.domain.length) {
@@ -56,7 +52,6 @@ class Home extends Component {
   render() {
     const isInCart = this.props.isInCart;
     const company = this.props.state.company;
-    console.log(this.props);
     const homeOptions = company => {
       if (isInCart) {
         return <AltCart />;
