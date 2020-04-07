@@ -272,36 +272,6 @@ body {
 
 /*HOME*/
 
-.message {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 700px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-}
-
-.welcome {
-  color: #2b303a;
-  border-radius: 20px;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 100px;
-  left: 50px;
-  width: 100%;
-
-  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
-  font-size: large;
-  font-family: Roboto;
-  text-align: center;
-}
-
 h2 span {
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif;
@@ -318,32 +288,44 @@ h2 span {
   left: 50;
   width: 100%;
 }
-.welcomeinfo {
-  line-height: 1.3em;
-  position: absolute;
-  font-size: 14px;
-  top: 325px;
-  left: 0;
-  width: 80%;
-  height: 500px;
-  padding-left: 35px;
+
+.altCartContainer {
+  line-height: 1.5em;
+  margin-bottom: 45px;
+  font-family: Roboto;
+  font-size: 13px;
   text-align: justify;
-overflow: visible;
-}
-.welcomeinfo span {
-  font-weight: bold;
+  color: #2B303A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center
 }
 
-.cartimg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: 100%;
-  max-height: 100%;
-  margin-top: 65px;
-  overflow: scroll;
+.cartImg {
+  width: 100%;
+}
+
+.aboutAltCartContainer {
+  padding-left: 25px;
+  padding-right: 30px;
+}
+.howToUseAltCart {
+font-weight: bold
+}
+
+.happyShopping {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 5px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+  background-color: #58A4B0;
+  color: white;
+  width: 290px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ratingexpl {
@@ -544,8 +526,6 @@ overflow: visible;
 }
 
 .logoContainer {
-  /* height: 116px;
-  width: 110px; */
   display: flex;
   align-items: left;
   justify-content: center;
