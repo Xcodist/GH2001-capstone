@@ -43,7 +43,7 @@ export const addToWishlistThunk = (altItem, user) => async dispatch => {
     }
   } catch(e) {
     console.log(e)
-  
+
   }
 }
 
