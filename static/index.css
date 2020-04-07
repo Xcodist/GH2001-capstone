@@ -553,7 +553,7 @@ overflow: visible;
 .store-item{
   margin-bottom: 10px;
 }
-img {max-width:100%;}
+/* img {max-width:100%;} */
 .loaderDiv {
   display: flex;
   flex-direction: column;
