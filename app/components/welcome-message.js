@@ -1,7 +1,9 @@
 import React from 'react'
 import cart from "../../static/online-shopping.jpg";
+import { connect } from 'react-redux'
 
-const Message = () => {
+const Message = (props) => {
+  console.log(props)
   return (
     <div className="message">
       <img className="cartimg" src={cart} />
@@ -9,7 +11,7 @@ const Message = () => {
         <span>Welcome to AltCart!</span>
       </h2>
       <p className='welcomeinfo'>
-        Thank you for taking us shopping with you! We are here to help keep you
+        Thank you for taking us shopping with you {props.state.user.firstName}! We are here to help keep you
         informed as a consumer and offer alternatives to shopping at retail
         giants like Amazon and Walmart. <span>Happy Shopping!</span>
       </p>
@@ -17,4 +19,8 @@ const Message = () => {
   );
 };
 
-export default Message
+const mapStateToProps = (state) => ({
+  state: state
+})
+
+export default connect(mapStateToProps)(Message)

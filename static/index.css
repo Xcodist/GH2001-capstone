@@ -211,15 +211,14 @@ body {
   text-align: center;
 }
 
-.stores, .shops-title{
+.stores,
+.shops-title {
   text-align: center;
   font-weight: bold;
-
 }
 .nobull {
   list-style-type: none;
 }
-
 
 /* Alt Cart Styling */
 
@@ -248,6 +247,17 @@ body {
 
 /*HOME*/
 
+.message {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 700px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
 .welcome {
   color: #2b303a;
   border-radius: 20px;
@@ -260,6 +270,11 @@ body {
   top: 100px;
   left: 50px;
   width: 100%;
+
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  font-size: large;
+  font-family: Roboto;
+  text-align: center;
 }
 
 h2 span {
@@ -285,8 +300,10 @@ h2 span {
   top: 325px;
   left: 0;
   width: 80%;
+  height: 500px;
   padding-left: 35px;
-  text-align: center;
+  text-align: justify;
+overflow: visible;
 }
 .welcomeinfo span {
   font-weight: bold;
@@ -301,24 +318,24 @@ h2 span {
   max-width: 100%;
   max-height: 100%;
   margin-top: 65px;
-  overflow: auto;
+  overflow: scroll;
 }
 
 .ratingexpl {
-  padding: 10px;
-  text-align: center
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
 }
 
 .ratingexpl span {
-  font-weight: bold
+  font-weight: bold;
 }
 
 .ratingbody {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #0C7C59;
-
+  background-color: #0c7c59;
 }
 
 .ratingnum {
@@ -350,12 +367,11 @@ h2 span {
   font-size: 30px;
   padding-top: 20px;
   font-weight: bold;
-  -webkit-transition: word-spacing 200ms cubic-bezier(0.895, 0.03, 0.685, 0.22) 10ms;
 }
 
 .header p {
   font-size: 12px;
-  font-weight: normal
+  font-weight: normal;
 }
 
 .rating {
@@ -439,13 +455,6 @@ h2 span {
   flex-direction: column;
 }
 
-.welcome {
-  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
-  font-size: large;
-  font-family: Roboto;
-  text-align: center;
-}
-
 .categoryList {
   display: flex;
   flex-wrap: wrap;
@@ -470,10 +479,15 @@ h2 span {
 }
 
 .storeLink {
-  margin: 40px
+  margin: 40px;
 }
 
 .logout {
   margin-top: 10px;
   margin-bottom: 60px;
 }
+
+.mainNav {
+  flex-grow: 2;
+}
+
