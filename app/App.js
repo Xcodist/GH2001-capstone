@@ -3,6 +3,9 @@ import BottomAppBar from "./components/navbar";
 import { withRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import {retrieveCompany} from './store/company'
+
 //Components
 import { Login, Signup } from "./components/auth-form";
 import HasRating from './components/companyRating'
@@ -16,6 +19,7 @@ import Beauty from "./components/Beauty";
 import Electronics from "./components/Electronics";
 import Clothing from "./components/Clothing";
 import ForHome from "./components/ForHome";
+
 //Thunks
 import { me } from "./store/users";
 import { retrieveCart } from "./store/cart";
@@ -27,11 +31,23 @@ class App extends React.Component {
       domain: "",
       isInCart: false
     };
+    this.homeOptions = this.homeOptions.bind(this)
   }
+
+  homeOptions() {
+    if (this.state.isInCart) {
+      return <Route path="/" render={props => <AltCart {...this.state} />} />
+    } else if (this.props.state.company.rating) {
+      return <Route path="/" render={props => <HasRating {...this.state} />} />
+    } else {
+      return <Route path="/" render={props => <Home {...this.state} />} />
+    }
+  };
 
   componentDidMount() {
     this.props.loadInitialData();
     this.props.retrieveCart();
+
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = url.hostname;
@@ -64,24 +80,17 @@ class App extends React.Component {
     });
   }
 
-  // componentDidUpdate() {
-  //   chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-  //     const url = new URL(tabs[0].url);
-  //     if (
-  //       url.href.includes("cart") ||
-  //       url.href.includes("checkout") ||
-  //       url.href.includes("basket") ||
-  //       url.href.includes("buy")
-  //     ) {
-  //       this.setState({ ...this.state, isInCart: true });
-  //     } else {
-  //       this.setState({ ...this.state, isInCart: false });
-  //     }
-  //   });
-  // }
+  componentDidUpdate(prevState, prevProps) {
+    if (this.state.domain) {
+      if (this.state.domain.length !== prevProps.domain.length) {
+        this.props.retrieveCompany(this.state.domain);
+      }
+    }
+  }
 
   render() {
     const { isLoggedIn } = this.props;
+
     return (
       <div>
         <Header />
@@ -104,7 +113,8 @@ class App extends React.Component {
           <Route path="/beauty" component={Beauty} />
           <Route path="/electronics" component={Electronics} />
           <Route path="/forHome" component={ForHome} />
-          <Route path="/" render={props => <Home {...this.state} />} />
+          <Route path="/home" render={props => <Home {...this.state} />} />
+          {this.homeOptions()}
           {isLoggedIn && (
             <Switch>
               <Route
@@ -116,11 +126,6 @@ class App extends React.Component {
                 path="/profile"
                 render={props => <Profile {...this.state} />}
               />
-              {/* {isAdmin && (
-              <Switch>
-                <Route path="/home" component={AdminHome} />
-              </Switch> */}
-              {/* )} */}
             </Switch>
           )}
         </Switch>
@@ -141,7 +146,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     loadInitialData: () => dispatch(me()),
-    retrieveCart: () => dispatch(retrieveCart())
+    retrieveCart: () => dispatch(retrieveCart()),
+    retrieveCompany: (domain) => dispatch(retrieveCompany(domain))
   };
 };
 
