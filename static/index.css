@@ -12,6 +12,31 @@ body {
   margin-bottom: 70px;
 }
 
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #2B303A;
+}
+
+.emptyCartImg {
+  height: 100%;
+  width: 150px
+}
+
+.emptyCart h1 {
+  width: 200px;
+}
+
+.emptyCart p {
+  width: 200px;
+  font-size: 14px;
+}
+
 .form-login,
 .form-signup {
   width: 340px;
