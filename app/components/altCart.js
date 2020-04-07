@@ -136,7 +136,14 @@ class AltCart extends Component {
         })}
       </div>
     ) : (
-      <div className='loading'>Loading alternatives!</div>
+      <div className="loaderDiv">
+        <div className='loading'>Loading alternatives!</div>
+        <div className="loaderHolder">
+        <div className="loader"></div>
+        </div>
+
+      </div>
+
     );
   }
 }
