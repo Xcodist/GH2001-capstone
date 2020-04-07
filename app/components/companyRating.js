@@ -51,17 +51,17 @@ const HasRating = props => {
         <br></br>
         <p className="ratingexpl">
           This is CRS Hub's rating of <span>{company.name}</span>. CSR Hub
-          offers transparent ratings and rankings of 19,184 companies from 143
-          countries, driven by 662 industry-leading CSR/ESG data sources,
-          including ESG analyst, crowd, government, publication, and and
-          not-for-profit data. For more information, visit
+          offers transparent ratings on a scale from 0 to 100, and rankings of
+          19,184 companies from 143 countries, driven by 662 industry-leading
+          CSR/ESG data sources, including ESG analyst, crowd, government,
+          publication, and and not-for-profit data. For more information, visit
           <a href="https://www.csrhub.com/"> CSRHUB.com</a>
         </p>
       </div>
     </div>
   ) : (
     <div>Loading</div>
-  )
+  );
 };
 
 const mapStateToProps = state => ({
