@@ -16,6 +16,7 @@ export const fetchAlternatives = (products, prices) => async dispatch => {
     const alternatives = await Axios.get(
       `http://localhost:8080/api/alt?cart=${products}&price=${prices}`
     );
+    console.log(alternatives)
     if (alternatives) {
       dispatch(getAlt(alternatives.data));
     } else {
