@@ -29,10 +29,10 @@ class Profile extends Component {
 
     return (
       <div className="Profile">
-        <h1 className="welcomeP">Welcome {user.firstName}</h1>
+        <h1 className="welcomeP">Welcome {user.firstName}!</h1>
         {wishlist.length ? (
           <div>
-            <p className="welcomeP">Check you wishlist!</p>
+            <p className="welcomeP">Check your wishlist!</p>
             {wishlist.map((alternative) => {
               return (
                 <div key={alternative.title}>
