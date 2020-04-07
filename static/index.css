@@ -487,11 +487,15 @@ h2 span {
   justify-content: space-around;
 }
 
+
 .store-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   width: 160px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #d64933;
   cursor: pointer;
-  height: 226px;
+  height: 200px;
   box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.03);
   transition: box-shadow .25s ease;
   border-radius: 3px;
@@ -511,3 +515,4 @@ h2 span {
 .store-item{
   margin-bottom: 10px;
 }
+img {max-width:100%;}
