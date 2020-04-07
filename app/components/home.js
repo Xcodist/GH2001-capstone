@@ -1,51 +1,42 @@
-//backend to look up company and rating
-//get domain props from App.js
-//boolean to decide if page has cart == may need state
-//if statement to decide what face
+import React from "react";
+import cart from "../../static/online-shopping.jpg";
+import { connect } from "react-redux";
 
-import React, { Component } from "react";
-import Axios from "axios";
-import AltCart from "./altCart";
-import Message from './welcome-message'
-import CompanyRating from './companyRating'
+const Home = props => {
+  return (
+    <div className="message">
+      <img className="cartimg" src={cart} />
+      <h2 className="welcome">
+        <span>Welcome to AltCart!</span>
+      </h2>
+      <p className="welcomeinfo">
+        Thank you for taking us shopping with you {props.state.user.firstName}!
+        We are here to help keep you informed as a consumer and make it easier
+        to steer clear of the online shopping giants putting smaller retailers
+        out of business.
+        {/* Anytime you shop on Amazon or Walmart, our app will
+        run a search to find the same products you chose from alternative
+        retailers - sometimes at lower prices than you originally found!<br></br>
+        <span>How to use your altCart:</span><br></br>
+        From your Amazon or Walmart cart, open the extension to view your
+        altCart. Buy the product directly, or save it to your altCart wishlist.
+        You can also use our extension on any website to access:
+        <ul>
+          <li>
+            Corporate social responsibility ratings for over 9000 businesses
+            worldwide
+          </li>
+          <li>Up-to-date news articles on the companies you're viewing</li>
+          <li>Ethical brands recommended by our team at altCart</li>
+        </ul> */}
+        <span> Happy Shopping!</span>
+      </p>
+    </div>
+  );
+};
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      company: ""
-    };
-    this.getCompany = this.getCompany.bind(this);
-  }
-  componentDidUpdate(prevState, prevProps) {
-    if (this.props.domain.length !== prevState.domain.length) {
-      this.getCompany(this.props.domain);
-    }
-  }
-  getCompany(name) {
-    Axios.get(`http://localhost:8080/api/companies?name=${name}`)
-      .then(company => {
-        this.setState({
-          company: company.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+const mapStateToProps = state => ({
+  state: state
+});
 
-  render() {
-    const isInCart = this.props.isInCart;
-    const company = this.state.company;
-    const homeOptions = company => {
-      if (isInCart) {
-        return <AltCart />;
-      } else if (company.rating) {
-        return <CompanyRating company={company} />
-      } else {
-        return <Message />;
-      }
-    };
-    return company[0] ? <div className='mainBody'>{homeOptions(company[0])}</div> : <Message />;
-  }
-}
+export default connect(mapStateToProps)(Home);

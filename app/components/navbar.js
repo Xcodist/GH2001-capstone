@@ -9,14 +9,21 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
-import style from "./navbar.css";
 import SearchIcon from "@material-ui/icons/Search";
+import GradeIcon from "@material-ui/icons/Grade";
+import FormatAlignJustifyIcon from "@material-ui/icons/FormatAlignJustify";
 import PersonIcon from "@material-ui/icons/Person";
 import HomeIcon from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import DescriptionIcon from "@material-ui/icons/Description";
+import ArtTrackIcon from "@material-ui/icons/ArtTrack";
 import Profile from "./profile";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ShopIcon from "@material-ui/icons/Shop";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import InfoIcon from "@material-ui/icons/Info";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -24,26 +31,11 @@ const useStyles = makeStyles(theme => ({
     position: "fixed",
     bottom: 0,
     top: "auto",
-    background: '#BAC1B8'
+    background: "#BAC1B8"
   },
   grow: {
     flexGrow: 1
   }
-  // SearchIcon:{
-  //   flex: auto,
-  // },
-  // PersonIcon:{
-  //   flex: auto,
-  // },
-  // HomeIcon: {
-  //   flex: auto,
-  // },
-  // DescriptionIcon:{
-  //   flex: auto,
-  // }
-  // toolbarButtons: {
-  //   flex: auto,
-  // }
 }));
 
 const BottomAppBar = props => {
@@ -54,61 +46,88 @@ const BottomAppBar = props => {
     else if (e.target.name === "search") history.push("/search");
     else if (e.target.name === "profile") history.push("/profile");
     else if (e.target.name === "signup") history.push("/signup");
+    else if (e.target.name === "altCart") history.push("/altCart");
+    else if (e.target.name === "rating") history.push("/rating");
     else history.push("/");
   }
   const classes = useStyles();
-
   const isLoggedIn = props.isLoggedIn;
   return (
     <AppBar
       position="fixed"
-      style={{background: '#f7f7f7'}}
+      style={{ background: "#f7f7f7" }}
       className={classes.appBar}
     >
-      <Toolbar className={classes.toolbar}>
-        <IconButton
-          name="home"
-          onClick={props.handleClick}
-          component={RouterLink}
-          to="/"
-        >
-          <HomeIcon />
-        </IconButton>
-        <IconButton
-          name="news"
-          onClick={props.handleClick}
-          component={RouterLink}
-          to="/news"
-        >
-          <DescriptionIcon />
-        </IconButton>
-        <IconButton
-          name="search"
-          onClick={props.handleClick}
-          component={RouterLink}
-          to="/search"
-        >
-          <SearchIcon />
-        </IconButton>
-        {isLoggedIn ? (
+      <Toolbar
+        className={classes.toolbar}
+        style={{
+          display: "flex",
+          justifyContent: "space-between"
+        }}
+      >
+        <div className="mainNav">
           <IconButton
-            name="profile"
+            name="altCart"
             onClick={props.handleClick}
             component={RouterLink}
-            to="/profile"
+            to="/altCart"
           >
-            <PersonIcon />
+            <ShoppingCartIcon />
           </IconButton>
-        ) : (
           <IconButton
-            name="login"
+            name="rating"
             onClick={props.handleClick}
             component={RouterLink}
-            to="/login"
+            to="/rating"
           >
-            <PersonIcon />
+            <GradeIcon />
           </IconButton>
-        )}
+          <IconButton
+            name="news"
+            onClick={props.handleClick}
+            component={RouterLink}
+            to="/news"
+          >
+            <FormatAlignJustifyIcon />
+          </IconButton>
+          <IconButton
+            name="search"
+            onClick={props.handleClick}
+            component={RouterLink}
+            to="/search"
+          >
+            <CheckCircleIcon />
+          </IconButton>
+        </div>
+        <div className="navInfo">
+          <IconButton
+            name="home"
+            onClick={props.handleClick}
+            component={RouterLink}
+            to="/home"
+          >
+            <InfoIcon />
+          </IconButton>
+          {isLoggedIn ? (
+            <IconButton
+              name="profile"
+              onClick={props.handleClick}
+              component={RouterLink}
+              to="/profile"
+            >
+              <PersonIcon />
+            </IconButton>
+          ) : (
+            <IconButton
+              name="login"
+              onClick={props.handleClick}
+              component={RouterLink}
+              to="/login"
+            >
+              <PersonIcon />
+            </IconButton>
+          )}
+        </div>
         {/* <nav>{navRoutes()}</nav> */}
       </Toolbar>
     </AppBar>
