@@ -392,6 +392,8 @@ overflow: visible;
   font-size: 30px;
   padding-top: 20px;
   font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .header p {
@@ -553,7 +555,7 @@ overflow: visible;
 .store-item{
   margin-bottom: 10px;
 }
-img {max-width:100%;}
+
 .loaderDiv {
   display: flex;
   flex-direction: column;
