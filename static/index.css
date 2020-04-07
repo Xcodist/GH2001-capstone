@@ -272,36 +272,6 @@ body {
 
 /*HOME*/
 
-.message {
-  /* width: 100%;
-  margin: 0 auto;
-  max-width: 700px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0; */
-}
-
-.welcome {
-  /* color: #2b303a;
-  border-radius: 20px;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 100px;
-  left: 50px;
-  width: 100%;
-
-  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
-  font-size: large;
-  font-family: Roboto;
-  text-align: center; */
-}
-
 h2 span {
   color: white;
   font: bold 24px/45px Helvetica, Sans-Serif;
@@ -333,38 +303,16 @@ h2 span {
   justify-content: center
 }
 
-.welcomeContainer {
-
-}
-
 .cartImg {
   width: 100%;
-}
-
-.welcomeTitle {
-
 }
 
 .aboutAltCartContainer {
   padding-left: 25px;
   padding-right: 30px;
 
-}
-
-.welcomeinfo {
-
-}
-
 .howToUseAltCart {
 font-weight: bold
-}
-
-.aboutAltCartList {
-
-}
-
-.altCartAboutListItem {
-
 }
 
 .happyShopping {
@@ -426,6 +374,8 @@ font-weight: bold
   font-size: 30px;
   padding-top: 20px;
   font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .header p {
@@ -576,8 +526,6 @@ font-weight: bold
 }
 
 .logoContainer {
-  /* height: 116px;
-  width: 110px; */
   display: flex;
   align-items: left;
   justify-content: center;
@@ -587,6 +535,7 @@ font-weight: bold
 .store-item{
   margin-bottom: 10px;
 }
+
 .loaderDiv {
   display: flex;
   flex-direction: column;
