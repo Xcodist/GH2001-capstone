@@ -51,6 +51,7 @@ export const removeFromWishlistThunk = ( userId, wishlistId) => async dispatch =
     dispatch(removeFromWishlist(wishlistId));
   }  catch (e) {
     console.log(e)
+
   }
 }
 
@@ -61,7 +62,8 @@ export default function(state = wishlist, action) {
     case ADD_TO_WISHLIST:
       return [...state, action.altItem];
     case REMOVE_FROM_WISHLIST:
-      let newWishlist = state.wishlist.filter(prod => prod.id !== action.wishlistId)
+      let copy = [...state]
+      let newWishlist = copy.filter(prod => prod.id !== action.wishlistId)
       return newWishlist;
     default:
       return state;
