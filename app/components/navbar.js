@@ -24,6 +24,8 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import ShopIcon from "@material-ui/icons/Shop";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import InfoIcon from "@material-ui/icons/Info";
+import Tooltip from "@material-ui/core/Tooltip"
+
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -66,6 +68,7 @@ const BottomAppBar = props => {
         }}
       >
         <div className="mainNav">
+          <Tooltip title="Alternative Cart">
           <IconButton
             name="altCart"
             onClick={props.handleClick}
@@ -74,6 +77,8 @@ const BottomAppBar = props => {
           >
             <ShoppingCartIcon />
           </IconButton>
+          </Tooltip>
+          <Tooltip title="Company Rating">
           <IconButton
             name="rating"
             onClick={props.handleClick}
@@ -82,6 +87,8 @@ const BottomAppBar = props => {
           >
             <GradeIcon />
           </IconButton>
+          </Tooltip>
+          <Tooltip title="Articles">
           <IconButton
             name="news"
             onClick={props.handleClick}
@@ -90,6 +97,8 @@ const BottomAppBar = props => {
           >
             <FormatAlignJustifyIcon />
           </IconButton>
+          </Tooltip>
+          <Tooltip title="Suggested Stores" >
           <IconButton
             name="search"
             onClick={props.handleClick}
@@ -98,8 +107,10 @@ const BottomAppBar = props => {
           >
             <CheckCircleIcon />
           </IconButton>
+          </Tooltip>
         </div>
         <div className="navInfo">
+          <Tooltip title="Home Page">
           <IconButton
             name="home"
             onClick={props.handleClick}
@@ -108,7 +119,9 @@ const BottomAppBar = props => {
           >
             <InfoIcon />
           </IconButton>
+          </Tooltip>
           {isLoggedIn ? (
+            <Tooltip title="Wishlist/Logout">
             <IconButton
               name="profile"
               onClick={props.handleClick}
@@ -117,7 +130,9 @@ const BottomAppBar = props => {
             >
               <PersonIcon />
             </IconButton>
+            </Tooltip>
           ) : (
+            <Tooltip title="Login/Signup">
             <IconButton
               name="login"
               onClick={props.handleClick}
@@ -126,6 +141,7 @@ const BottomAppBar = props => {
             >
               <PersonIcon />
             </IconButton>
+            </Tooltip>
           )}
         </div>
         {/* <nav>{navRoutes()}</nav> */}

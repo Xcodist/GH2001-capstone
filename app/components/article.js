@@ -41,18 +41,20 @@ class Articles extends Component {
   render() {
     return (
       <div className="Articles">
-        <h2 className="headlines">Top Headlines</h2>
+        <h2 className="headlines">Top Headlines<img src="https://cdn.onlinewebfonts.com/svg/img_573740.png" width="30px"/></h2>
         {this.state.headlines.map((headline, i) => (
           <div className="single-article" >
-          <h4
+            
+          <p
             key={i}
             className="article-link"
             onClick={() => {
               window.open(headline.url);
             }}
           >
+            <img className="artListItem" src="https://image.flaticon.com/icons/png/512/38/38311.png" width="10px" />
             {headline.title}
-          </h4>
+          </p>
           <p className="outlet">{headline.name}</p>
           </div>
         ))}
@@ -60,4 +62,5 @@ class Articles extends Component {
     );
   }
 }
+
 export default Articles;
