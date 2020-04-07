@@ -1,63 +1,81 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Beauty extends Component {
   render() {
     return (
-        <div className="mainBody">
+      <div>
+         <Link className="back" to="/search">
+          Back
+        </Link>
         <ul className="nobull">
-        <li className="storeLink">
-          <a
-            className="stores"
-            onClick={() => {
-              window.open("https://www.lushusa.com/");
-            }}
-          >
-            Lush
-          </a>
-          <br />
-          <img
-            className="lush"
-            src="https://i.guim.co.uk/img/media/4794451cf6d1065daf74af3d0d50b77bbbd83f3e/362_163_3454_2073/master/3454.jpg?width=620&quality=85&auto=format&fit=max&s=0cec0d93c9c7deb5e9ee7b7325cd940c"
-            width="200"
-            height="100"
-          />
-        </li>
-        <li className="storeLink">
-          <a
-            className="stores"
-            onClick={() => {
-              window.open("https://www.youthtothepeople.com/")
-            }}
-          >
-            Youth To The People
-          </a>
-          <br />
-          <img
-          className="youth"
-          src="https://cdn.shopify.com/s/files/1/0466/9701/files/yttp-logo_321x_2x_321x_2x_321x_2x_7ccc446e-d83f-454d-a826-0710f3c46b44_321x@2x.png?v=1562194452"
-          width="300"
-          height="50"
-          />
-        </li>
-        <li className="storeLink">
-          <a
-            className="stores"
-            onClick={() => {
-              window.open("https://rahua.com/")
-            }}
-            >
-            Rahua
-          </a>
-          <br />
-          <img
-          className="rahua"
-          src="https://cdn.shopify.com/s/files/1/0067/5266/5673/files/RAHUA-LOGO-RainforestGrownBeauty-Horizontal-BROWN-FINAL_170x.png?v=1542047302"
-          width="200"
-          height="100"
-          />
-        </li>
-      </ul>
+          <div className="mainStore">
+            <div className="store-container">
+              <li className="storeLink">
+                <br />
+                <img
+                  className="lush"
+                  className="logoContainer"
+                  src="https://pbs.twimg.com/profile_images/1120784179182989312/uucySY3-_400x400.png"
+                  width="84"
+                  height="84"
+                />
+                <a
+                  className="stores"
+                  onClick={() => {
+                    window.open("https://www.lushusa.com/");
+                  }}
+                >
+                  Lush
+                </a>
+              </li>
+            </div>
+            <div className="store-container">
+              <li className="storeLink">
+                <br />
+                <img
+                  className="youth"
+                  className="logoContainer"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_Rk2RWkBTFQ1lqSoOVjR4wEWSPqxQDs2pIXeUNWvi3-IZdw1p&usqp=CAU"
+                  width="84"
+                  height="84"
+                />
+                <a
+                  className="stores"
+                  onClick={() => {
+                    window.open("https://www.youthtothepeople.com/");
+                  }}
+                >
+                  Youth To The People
+                </a>
+              </li>
+            </div>
+            <div className="store-container">
+              <li className="storeLink">
+                <br />
+                <img
+                  className="rahua"
+                  className="logoContainer"
+                  src="https://cdn.shopify.com/s/files/1/0067/5266/5673/files/RAHUA-LOGO-RainforestGrownBeauty-Horizontal-BROWN-FINAL_170x.png?v=1542047302"
+                  width="84"
+                  height="84"
+                />
+                <a
+                  className="stores"
+                  onClick={() => {
+                    window.open("https://rahua.com/");
+                  }}
+                >
+                  Rahua
+                </a>
+              </li>
+            </div>
+          </div>
+        </ul>
+        {/* <Link className="back" to="/search">
+          Back
+        </Link> */}
       </div>
-  );
-}
+    );
+  }
 }
