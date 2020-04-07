@@ -442,6 +442,10 @@ overflow: visible;
   font-size: small;
 }
 
+.artListItem {
+  margin-right: 20px
+}
+
 .outlet {
   font-family: Roboto;
   font-size: smaller;
