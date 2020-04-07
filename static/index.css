@@ -433,13 +433,17 @@ overflow: visible;
 }
 
 .headlines {
-  text-align: center;
+  text-align: center
 }
 
 .article-link {
   font-family: Roboto;
-  color: blue;
-  font-size: medium;
+  color: black;
+  font-size: small;
+}
+
+.artListItem {
+  margin-right: 20px
 }
 
 .outlet {
