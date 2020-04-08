@@ -282,7 +282,6 @@ h2 span {
 }
 
 .welcomeP {
-  /* position: absolute; */
   font-size: medium;
   top: 100px;
   left: 50;
@@ -364,8 +363,6 @@ font-weight: bold
   max-height: 150px;
   margin-top: -10px;
   margin-bottom: -10px;
-
-  /* align-self: flex-end; */
 }
 
 /*GENERAL HEADER*/

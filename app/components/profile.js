@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { me, logout } from "../store/users";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { getWishlistThunk, removeFromWishlistThunk } from "../store/wishlist";
 
 class Profile extends Component {

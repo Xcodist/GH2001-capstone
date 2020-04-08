@@ -1,5 +1,4 @@
 import Axios from 'axios'
-import alt from './alt'
 
 const GET_WISHLIST = 'GET_WISHLIST'
 const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST'

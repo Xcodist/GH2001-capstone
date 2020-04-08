@@ -5,7 +5,7 @@ export default class Beauty extends Component {
   render() {
     return (
       <div>
-         <Link className="back" to="/search">
+        <Link className="back" to="/search">
           Back
         </Link>
         <ul className="nobull">
@@ -72,9 +72,6 @@ export default class Beauty extends Component {
             </div>
           </div>
         </ul>
-        {/* <Link className="back" to="/search">
-          Back
-        </Link> */}
       </div>
     );
   }
