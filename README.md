@@ -24,7 +24,7 @@ createdb capstone
 npm run seed
 ```
 
-## Built With
+## Technologies
 1. React - JavaScript library for building user interfaces.
 2. Redux - JavaScript library for managing application state.
 3. Sequelize - a promise-based ORM for Node.js.
