@@ -2,9 +2,7 @@ const router = require("express").Router();
 require("../../secrets");
 
 const GSR = require("google-search-results-nodejs");
-let client = new GSR.GoogleSearchResults(
-  "c88292a99c393afebed7524cf431848fbf998b0cbfe2654a81b50525dae23148"
-);
+let client = new GSR.GoogleSearchResults(process.env.GOOGLE_SHOPPING_API_KEY);
 
 const config = item => ({
   engine: "google",
