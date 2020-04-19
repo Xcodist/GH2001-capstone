@@ -1,5 +1,3 @@
-//test
-
 if(window.location.href.includes('amazon')) {
     if (window.location.href.includes('cart')) {
       let items = document.getElementsByClassName('a-size-medium sc-product-title')

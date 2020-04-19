@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import { fetchAlternatives } from "../store/alt";
 import { addToWishlistThunk } from "../store/wishlist";
 import { connect } from "react-redux";
-import cart from '../../chrome/icons/empty_cart_1x.jpg'
+import { Button, Container, Typography, Grid } from "@material-ui/core";
+import cart from "../../chrome/icons/empty_cart_1x.jpg";
+import CartItems from "./altCart-item.js";
 class AltCart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cartFetched: false,
-      itemsInCart: true
+      itemsInCart: true,
     };
     this.altCartOptions = this.altCartOptions.bind(this);
   }
-  
 
   async componentDidMount() {
     let items = [];
@@ -23,7 +24,7 @@ class AltCart extends Component {
       items.push(key[0]);
       prices.push(value[0]);
     }
-    let cart = items.map(item => {
+    let cart = items.map((item) => {
       let parsed = "";
       for (let i = 0; i < item.length; i++) {
         if (item[i] !== ",") {
@@ -37,7 +38,7 @@ class AltCart extends Component {
     } else {
       this.setState({
         ...this.state,
-        itemsInCart: false
+        itemsInCart: false,
       });
     }
   }
@@ -50,59 +51,50 @@ class AltCart extends Component {
   altCartOptions() {
     const alternatives = this.props.state.alt;
     const user = this.props.state.user;
-    if (alternatives.length > 0) {
+    if (alternatives.length) {
       return (
-        <div className="mainBody">
-          <div className="header">Your altCart:</div>
-          {alternatives.map(alternative => {
-            return (
-              <div key={alternative.title}>
-                <div className="altProd">
-                  <div className="leftCol">
-                    <img className="thumbnail" src={alternative.thumbnail} />
-                  </div>
-                  <div className="rightCol">
-                    <a
-                      className="prodTitle"
-                      onClick={() => {
-                        window.open(alternative.link);
-                      }}
-                    >
-                      {alternative.title}
-                    </a>
-                    <div className="prodInfo">
-                      {alternative.source}
-                      <br />
-                      {alternative.price}
-                      <br />
-                      {alternative.snippet}
-                      <br />
-                    </div>
-                    <button
-                      onClick={() => {
-                        this.handleSubmit(event, alternative, user);
-                      }}
-                    >
-                      Add to wishlist!
-                    </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <React.Fragment>
+          <div>
+            <Container maxWidth="sm" align="center">
+              <Typography variant="h5">
+                <br />
+                Your Cart
+              </Typography>
+              <br />
+              <Grid container spacing={1} justify="center" alignItems="center">
+                {alternatives.map((alternative) => {
+                  return (
+                    <Grid item key={alternative.title} xs={12}>
+                      <CartItems handleSubmit={this.handleSubmit} alternative={alternative} user={user}/>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </Container>
+          </div>
+        </React.Fragment>
       );
     } else if (!this.state.itemsInCart) {
       return (
-        <div className="emptyCart">
-          <h1>You have no items in your cart!</h1>
-          <img className='emptyCartImg' src={cart}/>
-          <p>Add items and go to the cart on your browser to see alternative products.</p>
-        </div>
+        <React.Fragment>
+          <Container maxWidth="sm" align="center">
+            <Typography variant="h4">
+              <br />
+              You have no items in your cart!
+            </Typography>
+            <img className="emptyCartImg" src={cart} />
+            <br />
+            <br />
+            Add items and go to the cart on your browser to see alternative
+            products.
+          </Container>
+        </React.Fragment>
       );
     } else {
       return (
         <div className="loaderDiv">
+          <br />
+          <br />
           <div className="loading">Loading alternatives!</div>
           <div className="loaderHolder">
             <div className="loader"></div>
@@ -116,15 +108,15 @@ class AltCart extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  state: state
+const mapStateToProps = (state) => ({
+  state: state,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAlternatives: (cart, prices) =>
     dispatch(fetchAlternatives(cart, prices)),
   addToWishlistThunk: (alternative, user) =>
-    dispatch(addToWishlistThunk(alternative, user))
+    dispatch(addToWishlistThunk(alternative, user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AltCart);
