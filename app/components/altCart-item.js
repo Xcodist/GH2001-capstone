@@ -57,9 +57,9 @@ const CartItems = (props) => {
         <CardContent className={useStyles().details}>
           <Typography variant="subtitle2">
             <bold>{title}</bold>
-            <br/>
           </Typography>
           <Typography variant="p" color="textSecondary">
+          <br/>  
             <em>Buy from {source}:</em>
             <br />
             {price}
