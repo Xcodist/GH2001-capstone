@@ -96,6 +96,7 @@ class AltCart extends Component {
           <br />
           <br />
           <div className="loading">Loading alternatives!</div>
+          <br/>  <br/>
           <div className="loaderHolder">
             <div className="loader"></div>
           </div>
