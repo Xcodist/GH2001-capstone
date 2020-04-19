@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   details: {
     display: "flex",
     flexDirection: "column",
-    height: 200,
+    height: 180,
     width: 200,
     paddingLeft: 30,
   },
@@ -57,7 +57,6 @@ const CartItems = (props) => {
         <CardContent className={useStyles().details}>
           <Typography variant="subtitle2">
             <bold>{title}</bold>
-            <br />
             <br/>
           </Typography>
           <Typography variant="p" color="textSecondary">
