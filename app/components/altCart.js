@@ -12,6 +12,7 @@ class AltCart extends Component {
     };
     this.altCartOptions = this.altCartOptions.bind(this);
   }
+  
 
   async componentDidMount() {
     let items = [];
