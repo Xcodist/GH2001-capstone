@@ -39,5 +39,5 @@ function redirectWindow() {
 }
 
 
-chrome.windows.get.addListener(redirectWindow);
+chrome.windows.addListener(redirectWindow);
 
