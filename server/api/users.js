@@ -30,7 +30,7 @@ router.get('/:userId', isAdmin, async (req, res, next) => {
   } catch (err) {
     next(err)
   }
-});
+})
 
 
 //update user account
