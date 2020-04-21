@@ -41,7 +41,7 @@ class Articles extends Component {
   render() {
     return (
       <div className="Articles">
-        <h2 className="headlines">Top Headlines<img src="https://cdn.onlinewebfonts.com/svg/img_573740.png" width="30px"/></h2>
+        <h2 className="cartTitle">Top Headlines<img src="https://cdn.onlinewebfonts.com/svg/img_573740.png" width="30px"/></h2>
         {this.state.headlines.map((headline, i) => (
           <div className="single-article" >
             
