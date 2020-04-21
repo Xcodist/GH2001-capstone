@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import {retrieveCompany} from './store/company'
+import {retrieveSubsidiary} from './store/subsidiary'
 
 //Components
 import { Login, Signup } from "./components/auth-form";
@@ -83,8 +84,15 @@ class App extends React.Component {
   componentDidUpdate(prevState, prevProps) {
     if (this.state.domain) {
       if (this.state.domain.length !== prevProps.domain.length) {
-        this.props.retrieveCompany(this.state.domain);
+        this.props.retrieveSubsidiary(this.state.domain);
       }
+    }
+    if(this.props.state.subsidiary) {
+      if(this.props.state.subsidiary.name !== prevState.state.subsidiary.name) {
+        this.props.retrieveCompany(this.props.state.subsidiary.companyId)
+      }
+    }else {
+      this.props.retrieveCompany(this.state.domain)
     }
   }
 
@@ -147,7 +155,8 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData: () => dispatch(me()),
     retrieveCart: () => dispatch(retrieveCart()),
-    retrieveCompany: (domain) => dispatch(retrieveCompany(domain))
+    retrieveCompany: (domain) => dispatch(retrieveCompany(domain)),
+    retrieveSubsidiary: (domain) => dispatch(retrieveSubsidiary(domain))
   };
 };
 
