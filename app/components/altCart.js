@@ -2,9 +2,16 @@ import React, { Component } from "react";
 import { fetchAlternatives } from "../store/alt";
 import { addToWishlistThunk } from "../store/wishlist";
 import { connect } from "react-redux";
-import { Button, Container, Typography, Grid } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  makeStyles,
+  Typography,
+  Grid,
+} from "@material-ui/core";
 import cart from "../../chrome/icons/empty_cart_1x.jpg";
 import CartItems from "./altCart-item.js";
+
 class AltCart extends Component {
   constructor(props) {
     super(props);
@@ -51,26 +58,37 @@ class AltCart extends Component {
   altCartOptions() {
     const alternatives = this.props.state.alt;
     const user = this.props.state.user;
+
+    const useStyles = makeStyles(() => ({
+      title: {
+        color: "blue",
+      },
+    }));
+
     if (alternatives.length) {
       return (
         <React.Fragment>
           <div>
-            <Container maxWidth="sm" align="center">
-              <Typography variant="h5">
-                <br />
-                Your Cart
-              </Typography>
+            <br />
+            <div className="cartTitle" variant="h5" align="left" padding="30px">
+              Your Cart
+            </div>
+            <div className="cartItems" maxWidth="sm" align="center" paddingBottom="30px">
               <br />
               <Grid container spacing={1} justify="center" alignItems="center">
                 {alternatives.map((alternative) => {
                   return (
                     <Grid item key={alternative.title} xs={12}>
-                      <CartItems handleSubmit={this.handleSubmit} alternative={alternative} user={user}/>
+                      <CartItems
+                        handleSubmit={this.handleSubmit}
+                        alternative={alternative}
+                        user={user}
+                      />
                     </Grid>
                   );
                 })}
               </Grid>
-            </Container>
+            </div>
           </div>
         </React.Fragment>
       );
@@ -78,10 +96,10 @@ class AltCart extends Component {
       return (
         <React.Fragment>
           <Container maxWidth="sm" align="center">
-            <Typography variant="h4">
+            <div className="cartTitle" variant="h5">
               <br />
               You have no items in your cart!
-            </Typography>
+            </div>
             <img className="emptyCartImg" src={cart} />
             <br />
             <br />
@@ -96,7 +114,7 @@ class AltCart extends Component {
           <br />
           <br />
           <div className="loading">Loading alternatives!</div>
-          <br/>  <br/>
+          <br /> <br />
           <div className="loaderHolder">
             <div className="loader"></div>
           </div>
