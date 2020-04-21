@@ -8,6 +8,7 @@ import {
   CardContent,
 } from "@material-ui/core";
 import { connect } from "react-redux";
+import {addToWishlistThunk} from '../store/wishlist'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -36,18 +37,19 @@ const useStyles = makeStyles(() => ({
     maxWidth: 300,
     display: "flex",
     flexDirection: "column",
-  },
-}));
+  }
+  }
+));
 
 const CartItems = (props) => {
   console.log(props);
   const { title, thumbnail, link, snippet, source, price } = props.alternative;
   const { user, addToWishlistThunk } = props;
 
-  const handleSubmit = (event, alternative, user) => {
-    event.preventDefault();
-    addToWishlistThunk(alternative, user);
-  };
+  // const handleSubmit = (event, alternative, user) => {
+  //   event.preventDefault();
+  //   addToWishlistThunk(alternative, user);
+  // };
 
   return title ? (
     <Card key={title} className={useStyles().card}>
@@ -81,17 +83,21 @@ const CartItems = (props) => {
                 Buy now
             </Button>
         </div>
-        {/* 
+        
           <div className={useStyles().button}>
             <Button
               size="small"
               variant="contained"
               color="secondary"
-              onClick={handleSubmit(event, props.alternative, user)}
+              onClick={() => {
+                // console.log('this is userId', user.id)
+                // console.log("this is alternative" , props.alternative)
+                props.addToWishlist(props.alternative, user)
+              }}
             >
               Add to Wishlist
             </Button>
-          </div> */}
+          </div>
       </CardContent>
     </Card>
   ) : (
@@ -100,7 +106,7 @@ const CartItems = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addToWishlistThunk: (alternative, user) =>
+  addToWishlist: (alternative, user) =>
     dispatch(addToWishlistThunk(alternative, user)),
 });
 
