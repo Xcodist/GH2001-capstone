@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 const HasRating = props => {
   let emoji = "";
   let style = "";
-
+  console.log(props.state.company);
   const company = props.state.company;
   if (company.name) {
     let name = company.name;
@@ -43,7 +43,6 @@ const HasRating = props => {
         <br></br>
         <div className="ratingbody" style={{ background: style }}>
           <img className="ratingemoji" src={emoji} />
-
           <div className="ratingnum">
             Company<br></br>Rating: <span>{company.rating}</span>
           </div>
@@ -57,6 +56,10 @@ const HasRating = props => {
           publication, and and not-for-profit data. For more information, visit
           <a href="https://www.csrhub.com/"> CSRHUB.com</a>
         </p>
+        <p className="ratingexpl">{props.state.subsidiary.name} is a subsidiary of {company.name}. Other {company.name} subsidiaries include {company.subsidiaries.map((obj) => {
+          return obj.name
+        })
+        .join(', ')}</p>
       </div>
     </div>
   ) : (

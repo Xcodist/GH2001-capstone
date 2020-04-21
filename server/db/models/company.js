@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const db = require("../db");
+const Subsidiary = require('./subsidiary')
 
 const Company = db.define("company", {
   name: {
@@ -36,6 +37,19 @@ Company.findCompany = async function(name) {
   return company;
 };
 
+Company.findCompanyWithSubsidiaries = async function(id) {
+  const company = await this.findAll({
+    where: {
+      id: {
+        [Op.eq]: id
+      }
+    }, include: [{
+      model: Subsidiary
+    }]
+  })
+  return company
+}
+
 Company.prototype.getNumRating = function() {
   const parsed = parseInt(this.rating, 10);
   if (isNaN(parsed)) {
@@ -47,5 +61,7 @@ Company.prototype.getNumRating = function() {
 Company.findRatings = async function() {
   const companies = await this.findAll();
 };
+
+
 
 module.exports = Company;

@@ -7,13 +7,15 @@ import cart from "./cart";
 import alt from './alt';
 import wishlist from "./wishlist"
 import company from './company'
+import subsidiary from './subsidiary'
 
 const reducer = combineReducers({
   user,
   cart: cart,
   alt: alt,
   wishlist: wishlist,
-  company: company
+  company: company,
+  subsidiary: subsidiary
 });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
