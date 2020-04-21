@@ -38,7 +38,7 @@ const HasRating = props => {
   return company.name ? (
     <div>
       <div className="header">
-        {company.name}
+        <div className="companyName">{company.name}</div>
         <br></br>
         <br></br>
         <div className="ratingbody" style={{ background: style }}>
