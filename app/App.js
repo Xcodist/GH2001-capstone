@@ -92,9 +92,9 @@ class App extends React.Component {
         this.props.retrieveCompany(this.props.state.subsidiary.companyId)
       }
     }
-    // else {
-    //   this.props.retrieveCompany(this.state.domain)
-    // }
+    else {
+      this.props.retrieveCompany(this.state.domain)
+    }
   }
 
   render() {
