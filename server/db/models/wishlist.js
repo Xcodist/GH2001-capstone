@@ -25,10 +25,11 @@ const Wishlist = db.define("wishlist", {
     type: Sequelize.FLOAT
   },
   thumbnail: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     validate: {
       isUrl: true
-    }
+    },
+    defaultValue: "https://vectorified.com/images/new-product-icon-3.png"
   }
 })
 
