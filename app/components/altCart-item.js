@@ -50,7 +50,7 @@ const CartItems = (props) => {
   //   event.preventDefault();
   //   addToWishlistThunk(alternative, user);
   // };
-
+  
   return title ? (
     <Card key={title} className={useStyles().card}>
     <CardMedia
@@ -101,7 +101,8 @@ const CartItems = (props) => {
       </CardContent>
     </Card>
   ) : (
-    <Typography variant="subtitle2">Loading...</Typography>
+    // <Typography variant="subtitle2">Loading...</Typography>
+    <Typography variant="subtitle2">Sorry! We don't have alternative for you  :(</Typography>
   );
 };
 

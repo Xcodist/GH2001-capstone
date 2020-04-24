@@ -54,6 +54,7 @@ const BottomAppBar = props => {
   }
   const classes = useStyles();
   const isLoggedIn = props.isLoggedIn;
+
   return (
     <AppBar
       position="fixed"
@@ -68,7 +69,7 @@ const BottomAppBar = props => {
         }}
       >
         <div className="mainNav">
-          <Tooltip title="Alternative Cart">
+        {props.state.isInCart ? (<Tooltip title="Alternative Cart">
           <IconButton
             name="altCart"
             onClick={props.handleClick}
@@ -77,7 +78,7 @@ const BottomAppBar = props => {
           >
             <ShoppingCartIcon />
           </IconButton>
-          </Tooltip>
+          </Tooltip>) : <span />  }
           <Tooltip title="Company Rating">
           <IconButton
             name="rating"
@@ -174,7 +175,7 @@ export default connect(mapState)(BottomAppBar);
  * PROP TYPES
  */
 BottomAppBar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  // handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 };

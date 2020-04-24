@@ -32,6 +32,9 @@ router.put('/add/:userId',isUser, async (req, res, next) => {
         }]
       });
     const addedItem = req.body
+    if (addedItem.thumbnail.length > 255) {
+      delete addedItem.thumbnail
+    }
     let alreadyIn = false
     for (let i = 0; i < currentUser.wishlists.length; i++) {
       let wishItem = currentUser.wishlists[i] 
