@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 
 const separator = (company, props, style, emoji) => {
-  console.log('This is our company', company)
   if(company.subsidiaries) {
     return (<div>
       <div className="header">
@@ -65,7 +64,6 @@ const separator = (company, props, style, emoji) => {
 }
 
 const HasRating = props => {
-  console.log('This is our props', props)
   let emoji = "";
   let style = "";
   const company = props.state.company;

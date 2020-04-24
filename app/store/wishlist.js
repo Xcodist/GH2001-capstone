@@ -25,7 +25,6 @@ const removeFromWishlist = wishlistId => ({
 export const getWishlistThunk = (userId) => async dispatch => {
   try {
     const wishlist = await Axios.get(`http://localhost:8080/api/wishlist/${userId}`)
-    console.log('this is wishlist', wishlist.data[0].wishlists)
     dispatch(getWishlist(wishlist.data[0].wishlists));
   } catch(e) {
     console.log(e);
@@ -35,7 +34,6 @@ export const getWishlistThunk = (userId) => async dispatch => {
 
 export const addToWishlistThunk = (altItem, user) => async dispatch => {
   try {
-    console.log('this is alternative for adding', altItem)
     const newItem = await Axios.put(`http://localhost:8080/api/wishlist/add/${user.id}`, altItem);
     if(newItem) {
       dispatch(addToWishlist(newItem.data))
