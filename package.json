@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack --mode development --config webpack.js --watch",
     "server": "nodemon server",
-    "seed": "node server/db/seed/seed.js"
+    "seed": "node server/db/seed/seed.js",
+    "heroku-postbuild": "npm install && cd app && npm install --only-dev && npm install && npm run build"
+
   },
   "author": "",
   "license": "ISC",
