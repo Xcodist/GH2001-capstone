@@ -91,7 +91,8 @@ class App extends React.Component {
       if(this.props.state.subsidiary.name !== prevState.state.subsidiary.name) {
         this.props.retrieveCompany(this.props.state.subsidiary.companyId)
       }
-    }else {
+    }
+    if(!this.props.state.subsidiary) {
       this.props.retrieveCompany(this.state.domain)
     }
   }
