@@ -7,9 +7,7 @@
   "scripts": {
     "dev": "NODE_ENV=development webpack --mode development --config webpack.js --watch",
     "server": "nodemon server",
-    "seed": "node server/db/seed/seed.js",
-    "heroku-postbuild": "npm install && cd app && npm install --only-dev && npm install && npm run build"
-
+    "seed": "node server/db/seed/seed.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,7 +25,6 @@
     "compression": "^1.7.4",
     "connect-session-sequelize": "^6.1.1",
     "core-js": "^2.6.5",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "faker": "^4.1.0",
