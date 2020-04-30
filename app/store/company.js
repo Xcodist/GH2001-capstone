@@ -11,7 +11,7 @@ const getCompany = company => ({
 export const retrieveCompany = (domain) => async dispatch => {
   try {
     if(typeof domain === 'number') {
-      let company = await Axios.get(`http://localhost:8080/api/companies/subsidiaries?name=${domain}`)
+      let company = await Axios.get(`${process.env.HEROKU_URL}/api/companies/subsidiaries?name=${domain}`)
       if(company) {
         dispatch(getCompany(company.data))
       } else {
