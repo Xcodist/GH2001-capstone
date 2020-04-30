@@ -10,7 +10,7 @@ const getSubsidiary = subsidiary => ({
 
 export const retrieveSubsidiary = (domain) => async dispatch => {
   try {
-    let subsidiary = await Axios.get(`${process.env.HEROKU_URL}/api/subsidiaries?name=${domain}`)
+    let subsidiary = await Axios.get(`http://localhost:8080/api/subsidiaries?name=${domain}`)
   if(subsidiary) {
     dispatch(getSubsidiary(subsidiary.data))
   } else {
