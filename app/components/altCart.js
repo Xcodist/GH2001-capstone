@@ -68,7 +68,7 @@ class AltCart extends Component {
     if (alternatives.length) {
       return (
         <React.Fragment>
-          <div>
+          <div className>
             <br />
             <div className="cartTitle" variant="h5" align="left" padding="30px">
               Your Cart
