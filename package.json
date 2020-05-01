@@ -13,6 +13,7 @@
   },
   "author": "",
   "license": "ISC",
+  "heroku-run-build-script": true,
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
     "@material-ui/core": "^4.9.7",
