@@ -82,19 +82,35 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevState, prevProps) {
-    if (this.state.domain) {
-      if (this.state.domain.length !== prevProps.domain.length) {
-        this.props.retrieveSubsidiary(this.state.domain);
+    let {domain} = this.state
+    let prevDomain = prevProps.domain
+    let {retrieveCompany, retrieveSubsidiary} = this.props;
+    let {subsidiary, company} = this.props.state
+    let prevSubsidiary = prevState.state.subsidiary
+    let prevCompany = prevState.state.company;
+
+    if (domain) {
+      if (domain.length !== prevDomain.length) {
+        retrieveSubsidiary(domain);
       }
     }
-    if(this.props.state.subsidiary) {
-      if(this.props.state.subsidiary.name !== prevState.state.subsidiary.name) {
-        this.props.retrieveCompany(this.props.state.subsidiary.companyId)
+    if(subsidiary) {
+      if(subsidiary.name !== prevSubsidiary.name) {
+        retrieveCompany(subsidiary.companyId)
       }
     }
-    else {
-      this.props.retrieveCompany(this.state.domain)
+    if(!company.name) {
+      retrieveCompany(domain)
     }
+    // if(this.props.state.subsidiary) {
+    //   if(this.props.state.subsidiary.name !== prevState.state.subsidiary.name) {
+    //     this.props.retrieveCompany(this.props.state.subsidiary.companyId)
+    //   }
+    // } if(!this.props.state.subsidiary.name) {
+    //   if(this.props.state.company.name !== prevState.state.company.name) {
+    //     this.props.retrieveCompany(this.state.domain)
+    //   }
+    // }
   }
 
   render() {
