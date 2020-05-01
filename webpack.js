@@ -6,7 +6,7 @@ const WebpackExtensionManifestPlugin = require("webpack-extension-manifest-plugi
 const config = {
   mode: isDev ? "development" : "production",
   devtool: "inline-source-map",
-  entry: path.resolve(__dirname, "static") + "index.js",
+  entry: path.resolve(__dirname, "/src/") + "index.js",
   output: {
     path: path.resolve(__dirname, "./build"),
     filename: "[name].js",
@@ -24,7 +24,7 @@ const config = {
       },
       manifest: "manifest.json",
       filename: "index.html",
-      template: "./static/index.html",
+      template: "./src/index.html",
       hash: true,
     }),
     new CopyPlugin([
