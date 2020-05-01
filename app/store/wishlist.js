@@ -35,7 +35,7 @@ export const getWishlistThunk = (userId) => async dispatch => {
 
 export const addToWishlistThunk = (altItem, user) => async dispatch => {
   try {
-    const newItem = await Axios.put(`http://localhost:8080/api/wishlist/add/${user.id}`, altItem);
+    const newItem = await Axios.put(`/api/wishlist/add/${user.id}`, altItem);
     if(newItem) {
       dispatch(addToWishlist(newItem.data))
     } else {
@@ -49,7 +49,7 @@ export const addToWishlistThunk = (altItem, user) => async dispatch => {
 
 export const removeFromWishlistThunk = ( userId, wishlistId) => async dispatch => {
   try {
-    const removedItem = await Axios.delete(`http://localhost:8080/api/wishlist/remove/${userId}/${wishlistId}`);
+    const removedItem = await Axios.delete(`/api/wishlist/remove/${userId}/${wishlistId}`);
     dispatch(removeFromWishlist(wishlistId));
   }  catch (e) {
     console.log('Problem with removing of item from your wishlist',e)
