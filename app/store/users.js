@@ -73,7 +73,7 @@ export const auth = (
 
 export const logout = () => async dispatch => {
   try {
-    await axios.post('http://localhost:8080/auth/logout')
+    await axios.post('/auth/logout')
     dispatch(removeUser())
     chrome.storage.local.remove(['isLoggedIn', 'user'], function () {
       console.log('removing users data from local storage')
