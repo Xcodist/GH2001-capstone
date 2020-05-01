@@ -5,6 +5,7 @@
   "main": "index.js",
   "proxy": "localhost:8080",
   "scripts": {
+    "deploy": "script/deploy",
     "dev": "NODE_ENV=development webpack --mode development --config webpack.js --watch",
     "server": "nodemon server",
     "seed": "node server/db/seed/seed.js",
@@ -71,8 +72,5 @@
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-extension-manifest-plugin": "^0.5.0"
-  },
-  "engines": {
-    "node": "10.x"
   }
 }
