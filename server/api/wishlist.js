@@ -2,7 +2,7 @@ const router = require('express').Router()
 const {User, Wishlist} = require('../db/models')
 module.exports = router
 
-const {isAdmin, isUser} = require('../../utils')
+const {isAdmin, isUser} = require('../utils')
 
 
 router.get('/:userId', isUser, async (req, res, next) => {
@@ -34,7 +34,7 @@ router.put('/add/:userId',isUser, async (req, res, next) => {
     const addedItem = req.body
     let alreadyIn = false
     for (let i = 0; i < currentUser.wishlists.length; i++) {
-      let wishItem = currentUser.wishlists[i] 
+      let wishItem = currentUser.wishlists[i]
       if (addedItem.title === wishItem.title) alreadyIn = true
     }
     if (!alreadyIn) {

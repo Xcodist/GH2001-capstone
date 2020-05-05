@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const pkg = require("../../package.json");
+const pkg = require("../package.json");
 
 
 const databaseName =

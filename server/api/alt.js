@@ -1,6 +1,6 @@
 const router = require("express").Router();
 if (!process.env.SERPAPI_KEY) {
-  require("../../client/secrets");
+  require("../secrets");
 }
 const {snip} = require('../utils')
 

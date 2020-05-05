@@ -2,7 +2,7 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
-const {isAdmin, isUser} = require('../../utils')
+const {isAdmin, isUser} = require('../utils')
 
 //get all users for admin only
 router.get('/', isAdmin, async (req, res, next) => {
