@@ -4,3 +4,4 @@ secrets.js
 package-lock.json
 server/node_modules/
 client/node_modules/
+server/node_modules/puppeteer/
