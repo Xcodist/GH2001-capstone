@@ -4,9 +4,9 @@ const CopyPlugin = require("copy-webpack-plugin");
 const baseManifest = require("./chrome/manifest.json");
 const WebpackExtensionManifestPlugin = require("webpack-extension-manifest-plugin");
 const config = {
-  mode: isDev ? "development" : "production",
+  mode: "development",
   devtool: "inline-source-map",
-  entry: path.resolve(__dirname, "/src/") + "index.js",
+  entry: ["babel-polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "./build"),
     filename: "[name].js",
@@ -56,7 +56,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ["babel-loader"]
       },
       {
         test: /\.css$/,
