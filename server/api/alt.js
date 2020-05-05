@@ -1,8 +1,8 @@
 const router = require("express").Router();
 if (!process.env.SERPAPI_KEY) {
-  require("../../secrets");
+  require("../../client/secrets");
 }
-const {snip} = require('../../utils')
+const {snip} = require('../utils')
 
 
 const GSR = require("google-search-results-nodejs");
