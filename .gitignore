@@ -2,3 +2,5 @@ node_modules/
 secrets.js
 .DS_Store
 package-lock.json
+server/node_modules/
+client/node_modules/
