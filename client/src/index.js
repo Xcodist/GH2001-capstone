@@ -6,7 +6,7 @@ import {Router} from 'react-router-dom'
 import history from '../app/history'
 import "./index.css";
 import store from '../app/store'
-import '@babel-polyfill'
+import 'babel-polyfill'
 
 
 
