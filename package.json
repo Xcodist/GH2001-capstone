@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "proxy": "localhost:8080",
-  "heroku-run-build-script": true,
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production --config webpack.js",
-    "deploy": "script/deploy",
     "dev": "NODE_ENV=development webpack --mode development --config webpack.js --watch",
     "server": "nodemon server",
     "seed": "node server/db/seed/seed.js",
