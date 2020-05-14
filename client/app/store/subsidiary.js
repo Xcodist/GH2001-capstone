@@ -10,7 +10,9 @@ const getSubsidiary = subsidiary => ({
 
 export const retrieveSubsidiary = (domain) => async dispatch => {
   try {
+
     let subsidiary = await Axios.get(`https://altcart.herokuapp.com/api/subsidiaries?name=${domain}`)
+
   if(subsidiary) {
     dispatch(getSubsidiary(subsidiary.data))
   } else {

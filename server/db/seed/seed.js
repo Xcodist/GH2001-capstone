@@ -1,7 +1,9 @@
 const db = require("..");
 const fs = require("fs");
 const path = require("path");
+
 require('sequelize')
+
 
 const { User, Company, Subsidiary } = require("../models");
 

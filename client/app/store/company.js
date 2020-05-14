@@ -11,6 +11,7 @@ const getCompany = company => ({
 export const retrieveCompany = (domain) => async dispatch => {
   try {
     if(typeof domain === 'number') {
+
       let company = await Axios.get(`https://altcart.herokuapp.com/api/companies/subsidiaries?name=${domain}`)
       if(company) {
         dispatch(getCompany(company.data))
@@ -20,6 +21,7 @@ export const retrieveCompany = (domain) => async dispatch => {
     }
     else {
       let company = await Axios.get(`https://altcart.herokuapp.com/api/companies?name=${domain}`)
+
       if (company) {
         dispatch(getCompany(company.data))
       }
