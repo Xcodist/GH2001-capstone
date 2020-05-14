@@ -3,6 +3,7 @@ if(window.location.href.includes('amazon')) {
     let items = document.getElementsByClassName('a-size-medium sc-product-title')
     let prices = document.getElementsByClassName('a-size-medium a-color-price sc-price sc-white-space-nowrap sc-product-price sc-price-sign a-text-bold')
     let cartList = []
+    console.log(items);
     for (let i = 0; i < prices.length; i++) {
       let item = items[i].innerText;
       let price = prices[i].innerText.slice(1)

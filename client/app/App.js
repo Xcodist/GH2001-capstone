@@ -84,11 +84,10 @@ class App extends React.Component {
   componentDidUpdate(prevState, prevProps) {
     let {domain} = this.state
     let prevDomain = prevProps.domain
-    let {retrieveCompany, retrieveSubsidiary} = this.props;
+    let {retrieveCompany, retrieveSubsidiary, retrieveCart} = this.props;
     let {subsidiary, company} = this.props.state
     let prevSubsidiary = prevState.state.subsidiary
     let prevCompany = prevState.state.company;
-
     if (domain) {
       if (domain.length !== prevDomain.length) {
         retrieveSubsidiary(domain);
@@ -99,7 +98,7 @@ class App extends React.Component {
         retrieveCompany(subsidiary.companyId)
       }
     }
-    if(!company.name) {
+    else if(!company.name) {
       retrieveCompany(domain)
     }
     // if(this.props.state.subsidiary) {
