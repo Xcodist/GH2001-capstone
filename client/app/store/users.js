@@ -46,14 +46,14 @@ export const auth = (
   let res
   try {
     if(method === 'signup') {
-      res = await axios.post(`http://localhost:8080/auth/${method}`, {
+      res = await axios.post(`https://altcart.herokuapp.com/auth/${method}`, {
       email,
       password,
       firstName,
       lastName
     })
     } else {
-      res = await axios.post(`http://localhost:8080/auth/${method}`, {
+      res = await axios.post(`https://altcart.herokuapp.com/auth/${method}`, {
       email,
       password
     })

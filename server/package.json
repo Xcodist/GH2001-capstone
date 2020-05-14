@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development webpack --mode development --config webpack.js --watch",
     "server": "nodemon server",
     "seed": "node db/seed/seed.js",
-    "start": "node server"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
