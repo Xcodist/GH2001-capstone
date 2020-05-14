@@ -47,7 +47,6 @@ const createApp = () => {
 
   // logging middleware
   app.use(morgan('dev'))
-  app.use(cors())
 
 
 

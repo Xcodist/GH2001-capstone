@@ -1,7 +1,7 @@
 html,
 body {
   height: 500px;
-  width: 400px;
+  width: 370px;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -232,15 +232,19 @@ body {
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.8em;
   text-align: center;
+  /* font-family: 'Fugaz One', cursive; */
+  /* font-size: xx-large; */
 }
 
 .stores,
 .shops-title {
   text-align: center;
   font-weight: bold;
+
 }
+
 .nobull {
   list-style-type: none;
 }
@@ -268,6 +272,9 @@ body {
 .loading {
   text-align: center;
   font-size: 20px;
+  font-family: 'Racing Sans One', cursive;
+  font-size: x-large;
+  color: #2B303A
 }
 
 /*HOME*/
@@ -310,6 +317,12 @@ h2 span {
 .aboutAltCartContainer {
   padding-left: 25px;
   padding-right: 30px;
+}
+
+.welcomeTitle {
+  font-family: 'Racing Sans One', cursive;
+  font-size: x-large;
+  color: #2B303A
 }
 .howToUseAltCart {
 font-weight: bold
@@ -395,10 +408,6 @@ font-weight: bold
   font-size: 16px;
 }
 
-.shops-title {
-  text-align: center;
-}
-
 .nobull {
   text-align: center;
 }
@@ -417,8 +426,11 @@ font-weight: bold
 .shops-title {
   text-shadow: 0 1px rgba(255, 255, 255, 0.3);
   font-size: large;
-  font-family: Roboto;
   text-align: center;
+  font-family: 'Racing Sans One', cursive;
+  font-size: large;
+  color: #2B303A
+  
 }
 
 .Articles {
@@ -565,5 +577,23 @@ font-weight: bold
 }
 .mainNav {
   flex-grow: 2;
+}
+
+.cartTitle {
+  font-family: 'Racing Sans One', cursive;
+  font-size: xx-large;
+  color: #2B303A;
+  padding-left: 40px
+}
+
+.cartItems {
+  margin-bottom: 42px
+}
+
+.companyName {
+  font-family: 'Racing Sans One', cursive;
+  font-size: x-large;
+  text-align: center;
+  color: #2B303A
 }
 

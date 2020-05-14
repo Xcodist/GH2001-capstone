@@ -1,5 +1,5 @@
 import React from "react";
-import cart from "../../static/online-shopping.jpg";
+import cart from "../../src/online-shopping.jpg";
 import { connect } from "react-redux";
 
 const Home = props => {
