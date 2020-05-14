@@ -1,7 +1,10 @@
 const db = require("..");
 const fs = require("fs");
 const path = require("path");
+<<<<<<< HEAD
 require('sequelize')
+=======
+>>>>>>> master
 
 const { User, Company, Subsidiary } = require("../models");
 

@@ -47,6 +47,8 @@ const createApp = () => {
 
   // logging middleware
   app.use(morgan('dev'))
+  app.use(cors())
+
 
 
   // body parsing middleware
@@ -71,6 +73,7 @@ const createApp = () => {
   // auth and api routes
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
+
 
 
 

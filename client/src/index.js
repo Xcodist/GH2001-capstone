@@ -9,7 +9,6 @@ import store from '../app/store'
 import 'babel-polyfill'
 
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
