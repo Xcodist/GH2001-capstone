@@ -1,10 +1,16 @@
 const router = require("express").Router();
-require("../../secrets");
+if (!process.env.SERPAPI_KEY) {
+  require("../secrets");
+}
+const {snip} = require('../utils')
+
 
 const GSR = require("google-search-results-nodejs");
 let client = new GSR.GoogleSearchResults(
-  "c88292a99c393afebed7524cf431848fbf998b0cbfe2654a81b50525dae23148"
+  process.env.SERPAPI_KEY
 );
+
+
 
 const config = item => ({
   engine: "google",
@@ -16,7 +22,7 @@ const config = item => ({
   location: "United States"
 });
 
-const getLowestPrice = (result, itemPrice) => {
+const getLowestPrice = (result, itemPrice, product) => {
   let lowestPrice = {};
   result.shopping_results.map(item => {
     let priceDiff = item.extracted_price / Number(itemPrice) * 100
@@ -26,7 +32,8 @@ const getLowestPrice = (result, itemPrice) => {
       !item.source.includes("Target") &&
       !item.source.includes("Amazon") &&
       !item.source.includes("Best Buy") &&
-      dif >= 60
+      dif >= 70 &&
+      snip(item.title) === snip(product)
     ) {
       if (!Object.keys(lowestPrice).length) {
         lowestPrice = item;
@@ -48,7 +55,7 @@ router.get("/", async (req, res, next) => {
     let altAr = [];
     cartAr.forEach((product, i) => {
       client.json(config(product), result => {
-        const lowestPrice = getLowestPrice(result, priceArr[i]);
+        const lowestPrice = getLowestPrice(result, priceArr[i], product);
         altAr.push(lowestPrice);
         if (altAr.length === cartAr.length) {
           res.json(altAr);

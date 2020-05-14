@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import {retrieveCompany} from './store/company'
+import {retrieveSubsidiary} from './store/subsidiary'
 
 //Components
 import { Login, Signup } from "./components/auth-form";
@@ -81,11 +82,34 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevState, prevProps) {
-    if (this.state.domain) {
-      if (this.state.domain.length !== prevProps.domain.length) {
-        this.props.retrieveCompany(this.state.domain);
+    let {domain} = this.state
+    let prevDomain = prevProps.domain
+    let {retrieveCompany, retrieveSubsidiary, retrieveCart} = this.props;
+    let {subsidiary, company} = this.props.state
+    let prevSubsidiary = prevState.state.subsidiary
+    let prevCompany = prevState.state.company;
+    if (domain) {
+      if (domain.length !== prevDomain.length) {
+        retrieveSubsidiary(domain);
       }
     }
+    if(subsidiary) {
+      if(subsidiary.name !== prevSubsidiary.name) {
+        retrieveCompany(subsidiary.companyId)
+      }
+    }
+    else if(!company.name) {
+      retrieveCompany(domain)
+    }
+    // if(this.props.state.subsidiary) {
+    //   if(this.props.state.subsidiary.name !== prevState.state.subsidiary.name) {
+    //     this.props.retrieveCompany(this.props.state.subsidiary.companyId)
+    //   }
+    // } if(!this.props.state.subsidiary.name) {
+    //   if(this.props.state.company.name !== prevState.state.company.name) {
+    //     this.props.retrieveCompany(this.state.domain)
+    //   }
+    // }
   }
 
   render() {
@@ -147,7 +171,8 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData: () => dispatch(me()),
     retrieveCart: () => dispatch(retrieveCart()),
-    retrieveCompany: (domain) => dispatch(retrieveCompany(domain))
+    retrieveCompany: (domain) => dispatch(retrieveCompany(domain)),
+    retrieveSubsidiary: (domain) => dispatch(retrieveSubsidiary(domain))
   };
 };
 

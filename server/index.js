@@ -10,7 +10,7 @@ const db = require('./db')
 const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
-const cors = require('cors')
+require('dotenv').config()
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'test') {
  * keys as environment variables, so that they can still be read by the
  * Node process on process.env
  */
-if (process.env.NODE_ENV !== 'production') require('../secrets')
+if (process.env.NODE_ENV !== 'production') require('./secrets')
 
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
@@ -48,6 +48,7 @@ const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
   app.use(cors())
+
 
 
   // body parsing middleware
@@ -72,7 +73,8 @@ const createApp = () => {
   // auth and api routes
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
-  app.use('/newsapi', require('./newsapi'))
+
+
 
 
   // static file-serving middleware
@@ -107,6 +109,7 @@ const startListening = () => {
   const server = app.listen(PORT, () =>
     console.log(`Mixing it up on port ${PORT}`)
   )
+
 
 }
 

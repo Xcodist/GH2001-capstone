@@ -26,4 +26,15 @@ const isUser = (req, res, next) => {
   }
 }
 
-module.exports = {isUser, isAdmin}
+const snip = (search) => {
+  let count = 0;
+  let snippet = ''
+  for (let i = 0; i < search.length; i++) {
+    if (search[i] === " ") count ++
+    if (count === 3) break
+    snippet += search[i]
+  }
+  return snippet
+}
+
+module.exports = {isUser, isAdmin, snip}

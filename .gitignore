@@ -1,5 +1,9 @@
-node_modules
+node_modules/
 secrets.js
-build
 .DS_Store
-yarn.lock
+package-lock.json
+server/node_modules/
+server/package-lock.json
+client/node_modules/
+server/node_modules/puppeteer/
+scrape/post.csv
