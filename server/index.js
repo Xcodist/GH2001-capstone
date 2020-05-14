@@ -74,6 +74,7 @@ const createApp = () => {
 
 
 
+
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'build')))
 

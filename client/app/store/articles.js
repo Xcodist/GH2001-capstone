@@ -24,7 +24,7 @@ const articlesReducer = (state = initialState, action) => {
 export const getArticlesThunk = (company) => {
   return async dispatch => {
     try {
-      const {articles} = await axios.get(`http://localhost:8080/newsapi/articles/${company}`)
+      const {articles} = await axios.get(`/newsapi/articles/${company}`)
       dispatch(getArticles(articles));
   } catch(e) {
     console.log(e);
