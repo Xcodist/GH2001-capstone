@@ -1,11 +1,14 @@
 if(window.location.href.includes('amazon')) {
   if (window.location.href.includes('cart')) {
-    let items = document.getElementsByClassName('a-size-medium sc-product-title')
-    let prices = document.getElementsByClassName('a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold')
+
+    let parentDiv = document.getElementById('activeCartViewForm');
+    let items = parentDiv.getElementsByClassName('a-size-medium sc-product-title')
+    let prices = parentDiv.getElementsByClassName('a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold')
+    //these were getting wishlist items as well as cart items. not necessary as it slows down our search and ppl could have a lot in their carts
+    // let items = document.getElementsByClassName('a-size-medium sc-product-title')
+    // let prices = document.getElementsByClassName('a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold')
     //old prices tag  = 'a-size-medium a-color-price sc-price sc-white-space-nowrap sc-product-price sc-price-sign a-text-bold'
     let cartList = []
-    console.log(items[0].innerText);
-    console.log(prices[0])
     for (let i = 0; i < prices.length; i++) {
       let item = items[i].innerText;
       console.log(item);

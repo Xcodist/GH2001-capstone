@@ -14,7 +14,7 @@ const getAlt = alternatives => ({
 export const fetchAlternatives = (products, prices) => async dispatch => {
   try {
     const alternatives = await Axios.get(
-      `https://altcart.herokuapp.com/api/alt?cart=${products}&price=${prices}`
+      `https://altcart.herokuapp.com/api/alt/?cart=${products}&price=${prices}`
     );
     console.log('this is alternative', alternatives)
     if (alternatives) {

@@ -29,6 +29,7 @@ const isUser = (req, res, next) => {
 const snip = (search) => {
   let count = 0;
   let snippet = ''
+  console.log('search inside snip', search)
   for (let i = 0; i < search.length; i++) {
     if (search[i] === " ") count ++
     if (count === 3) break

@@ -21,7 +21,7 @@ const config = item => ({
   gl: "us",
   location: "United States"
 });
-
+//&&snip(item.title) === snip(product)
 const getLowestPrice = (result, itemPrice, product) => {
   let lowestPrice = {};
   result.shopping_results.map(item => {
@@ -32,8 +32,7 @@ const getLowestPrice = (result, itemPrice, product) => {
       !item.source.includes("Target") &&
       !item.source.includes("Amazon") &&
       !item.source.includes("Best Buy") &&
-      dif >= 70 &&
-      snip(item.title) === snip(product)
+      dif >= 70
     ) {
       if (!Object.keys(lowestPrice).length) {
         lowestPrice = item;
@@ -50,12 +49,14 @@ const getLowestPrice = (result, itemPrice, product) => {
 
 router.get("/", async (req, res, next) => {
   try {
+
     let cartAr = req.query.cart.split(",");
     let priceArr = req.query.price.split(",")
     let altAr = [];
     cartAr.forEach((product, i) => {
       client.json(config(product), result => {
         const lowestPrice = getLowestPrice(result, priceArr[i], product);
+        if(!lowestPrice.title) lowestPrice.title = product;
         altAr.push(lowestPrice);
         if (altAr.length === cartAr.length) {
           res.json(altAr);
